@@ -23,8 +23,8 @@
 
         <mat-form-field appearance="legacy">
           <mat-select ngModel name="gender" #gender="ngModel">
-              <mat-option value="male" >Male</mat-option>
-              <mat-option  value="female" >Female</mat-option>
+              <mat-option [value]='0' >Male</mat-option>
+              <mat-option  [value]='1' >Female</mat-option>
           </mat-select>
           <mat-label>Gender</mat-label>
           <mat-hint></mat-hint>
@@ -41,9 +41,20 @@
           <input  matInput ngModel name="address" #address="ngModel" placeholder="Adress">
           <mat-hint>Enter administrators address</mat-hint>
         </mat-form-field>
-        <button mat-button>Subbmit</button>
+        
+        <mat-form-field appearance="legacy">
+          <mat-select ngModel name="bc" #bc="ngModel">
+              <mat-option   [value]="i.id" *ngFor="let i of bloodCenters">
+              {{i.name}}
+              </mat-option>
+          </mat-select>
+          <mat-label>Blood center</mat-label>
+          <mat-hint></mat-hint>
+      </mat-form-field>
+      <button mat-button>Subbmit</button>
       </div>
 
+      
    
 
         <div class="rgform">
