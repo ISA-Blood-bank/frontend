@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { BloodCenter } from '../../interfaces/BloodCenter';
 import { BloodBankService } from '../../services/blood-bank.service';
 
@@ -37,6 +38,7 @@ export class BloodCentersDisplayComponent implements OnInit {
 
   constructor(private bloodBankService: BloodBankService) { }
 
+  //public dataSource = ELEMENT_DATA;
   public dataSource : BloodCenter[] = [];
   displayedColumns: string[] = ['name', 'street', 'number', 'city', 'country', 'description', 'averageScore'];
 
@@ -45,5 +47,4 @@ export class BloodCentersDisplayComponent implements OnInit {
       this.dataSource = data;
     });
   }
-
 }
