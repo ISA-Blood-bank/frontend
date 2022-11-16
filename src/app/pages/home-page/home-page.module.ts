@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BloodCentersDisplayComponent } from './components/blood-centers-display/blood-centers-display.component';
 
 import { MaterialModule } from 'src/app/material/material.module';
+import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -10,12 +12,14 @@ import { MaterialModule } from 'src/app/material/material.module';
 @NgModule({
   declarations: [
     BloodCentersDisplayComponent,
+    UserRegisterComponent,
     
   ],
   imports: [
     CommonModule,
 
-    MaterialModule
+    MaterialModule,
+    MatSelectModule,
 
   ]
 })
