@@ -9,6 +9,7 @@ import { HomePageModule } from './pages/home-page/home-page.module';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { BloodCenterRegisterModule } from './pages/blood-center-register/blood-center-register.module';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BloodCenterRegisterModule } from './pages/blood-center-register/blood-c
     MaterialModule,
     HomePageModule,
     MatToolbarModule,
-    BloodCenterRegisterModule
+    BloodCenterRegisterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
