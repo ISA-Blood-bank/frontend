@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -24,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 
     MaterialModule,
     MatSelectModule,
+    MatSortModule
 
   ]
 })
