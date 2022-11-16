@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -26,6 +28,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
@@ -36,6 +39,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
+    FormsModule
   ],
 })
 export class MaterialModule { }
