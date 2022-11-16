@@ -6,8 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
+
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { BloodCenterRegisterModule } from './pages/blood-center-register/blood-center-register.module';
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,8 +24,12 @@ import { BloodCenterRegisterModule } from './pages/blood-center-register/blood-c
     BrowserAnimationsModule,
     MaterialModule,
     HomePageModule,
+
     MatToolbarModule,
-    BloodCenterRegisterModule
+    BloodCenterRegisterModule,
+
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
