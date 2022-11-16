@@ -1,4 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { BloodCenter } from '../../interfaces/BloodCenter';
+import { BloodBankService } from '../../services/blood-bank.service';
+
+const ELEMENT_DATA: BloodCenter[]=[
+  {id: 1, 
+  name: 'Red Cross',
+  address: {
+    id: 1,
+    street: 'Narodnog fronta',
+    number: '35',
+    city: 'Novi Sad',
+    country: 'Srbija',
+  },
+  description: 'super',
+  averageScore: 0
+},
+{id: 2, 
+  name: 'Centar za transplantaciju',
+  address: {
+    id: 2,
+    street: 'Bulevar Oslobodjenja',
+    number: '35',
+    city: 'Novi Sad',
+    country: 'Srbija',
+  },
+  description: 'super',
+  averageScore: 0
+}]
 
 @Component({
   selector: 'app-blood-centers-display',
@@ -7,9 +35,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BloodCentersDisplayComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bloodBankService: BloodBankService) { }
+
+  public dataSource : BloodCenter[] = [];
+  displayedColumns: string[] = ['name', 'street', 'number', 'city', 'country', 'description', 'averageScore'];
 
   ngOnInit(): void {
+    this.bloodBankService.findAll().subscribe((data) => {
+      this.dataSource = data;
+    });
   }
 
 }
