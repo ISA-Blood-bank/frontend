@@ -1,41 +1,44 @@
-<form >
+<form #adminForm='ngForm' (ngSubmit)="getAdmin(adminForm.value)">
       <div class="rgform">
         <div class="info">
           <p class="title"> Blood center administrator informations</p>
         </div>
         <mat-form-field appearance="legacy">
           <mat-label>Administator name</mat-label>
-          <input matInput placeholder="Name">
+          <input  matInput ngModel name="name" #name="ngModel" placeholder="Name">
           <mat-hint>Enter the name of administrator</mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="legacy">
           <mat-label>Administrator surname</mat-label>
-          <input matInput placeholder="Surname">
+          <input  matInput ngModel name="surname" #surname="ngModel" placeholder="Surname">
           <mat-hint></mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="legacy">
           <mat-label>JMBG</mat-label>
-          <input matInput placeholder="xxxxxxxxxxxxx">
+          <input  matInput ngModel name="jmbg" #jmbg="ngModel" placeholder="xxxxxxxxxxxxx">
           <mat-hint>Enter 13 digit number</mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="legacy">
+          <mat-select ngModel name="gender" #gender="ngModel">
+              <mat-option value="male" >Male</mat-option>
+              <mat-option  value="female" >Female</mat-option>
+          </mat-select>
           <mat-label>Gender</mat-label>
-          <input matInput placeholder="G">
-          <mat-hint>Shortly describe blood center</mat-hint>
-        </mat-form-field>
-
+          <mat-hint></mat-hint>
+      </mat-form-field>
+     
         <mat-form-field appearance="legacy">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="emailaddres@gmail.com">
+          <input matInput ngModel name="email" #email="ngModel" placeholder="emailaddres@gmail.com">
           <mat-hint>Enter administators email</mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="legacy">
           <mat-label>Adress</mat-label>
-          <input matInput placeholder="Adress">
+          <input  matInput ngModel name="address" #address="ngModel" placeholder="Adress">
           <mat-hint>Enter administrators address</mat-hint>
         </mat-form-field>
         <button mat-button>Subbmit</button>

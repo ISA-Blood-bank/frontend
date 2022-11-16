@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class BloodCenterRegisterFormComponent implements OnInit {
 
   constructor() { }
-
+  selected = ''
   ngOnInit(): void {
   }
+  getAdmin(admin : any){
+    console.log(admin)
 
+  }
 }
