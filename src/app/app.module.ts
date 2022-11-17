@@ -13,6 +13,7 @@ import { BloodCenterRegisterModule } from './pages/blood-center-register/blood-c
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +28,14 @@ import { HttpClientModule } from '@angular/common/http';
 
     MatToolbarModule,
     BloodCenterRegisterModule,
+    HttpClientModule,
+
+
+    MatToolbarModule,
+    BloodCenterRegisterModule,
 
     HttpClientModule
+
 
   ],
   providers: [],
