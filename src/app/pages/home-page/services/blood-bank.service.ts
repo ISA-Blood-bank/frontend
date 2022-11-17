@@ -14,4 +14,7 @@ export class BloodBankService {
   findAll(){
     return this.http.get<BloodCenter[]>(this.url + '/api/bloodCenters/all');
   }
+  save(newUser: BloodCenter){
+    return this.http.post<BloodCenter>(this.url + '/api/bloodCenters/add', newUser);
+  }
 }
