@@ -1,5 +1,6 @@
 table{
-    width: 100%;
+    position:relative;
+    width:60%;
     background-color: #537895;
     border-radius: 10px;
     margin-top: 15px;
@@ -7,3 +8,19 @@ table{
     border: 1px solid #537895;
     border-radius: 10px;
   }
+
+.container{
+  padding-left: 30%;
+  margin: auto;
+}
+
+th{
+  font-size: medium;
+  color: white;
+  align-content: center;
+}
+
+td{
+  color: white;
+  align-content: center;
+}
