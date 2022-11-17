@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from 'src/app/material/material.module';
 
-import { MatTableModule } from '@angular/material/table';
 
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { MatSelectModule } from '@angular/material/select';
