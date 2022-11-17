@@ -8,7 +8,7 @@ import { ProfileViewComponent } from './pages/user-profile/components/profile-vi
 const routes: Routes = [
   { path: '', component: BloodCentersDisplayComponent},
   { path: 'centerRegister', component: BloodCenterRegisterFormComponent },
-  { path: 'userRegister', component: UserRegisterComponent }
+  { path: 'userRegister', component: UserRegisterComponent },
   { path: 'myprofile', component: ProfileViewComponent },
 ];
 

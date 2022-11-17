@@ -41,7 +41,7 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
-    MatDividerModule
+    MatDividerModule,
     FormsModule
   ],
 })

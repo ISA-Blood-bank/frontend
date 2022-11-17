@@ -8,11 +8,8 @@ import { MaterialModule } from './material/material.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
 import { UserProfileModule } from './pages/user-profile/user-profile.module';
 import { HttpClientModule } from '@angular/common/http';
-
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { BloodCenterRegisterModule } from './pages/blood-center-register/blood-center-register.module';
-
-import { HttpClientModule } from '@angular/common/http';
 
 
 
