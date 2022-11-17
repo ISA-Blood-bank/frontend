@@ -11,6 +11,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -27,6 +30,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSelectModule,
     MatOptionModule,
     MatDividerModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
@@ -38,6 +42,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatTooltipModule,
     MatFormFieldModule,
     MatDividerModule
+    FormsModule
   ],
 })
 export class MaterialModule { }
