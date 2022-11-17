@@ -38,8 +38,14 @@
 
       <mat-form-field appearance="legacy">
         <mat-label>Password</mat-label>
-        <input type="password" matInput ngModel name="password" #password="ngModel" placeholder="">
+        <input type="password" matInput ngModel name="password1" #password1="ngModel" placeholder="Enter password">
         <mat-hint>Enter password</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput ngModel name="password2" #password2="ngModel" placeholder="Enter password again">
+        <mat-hint>Enter password again</mat-hint>
       </mat-form-field>
 
       <mat-form-field appearance="legacy">
@@ -76,6 +82,12 @@
         <mat-label>Job or school</mat-label>
         <input  matInput ngModel name="jobOrSchoolInfo" #jobOrSchoolInfo="ngModel" placeholder="Job or school">
         <mat-hint>Enter enterprise o school name</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Phone number</mat-label>
+        <input  matInput ngModel name="phone" #phone="ngModel" placeholder="Phone number">
+        <mat-hint>Enter phone number</mat-hint>
       </mat-form-field>
       <button mat-button>Subbmit</button>
     </div>
