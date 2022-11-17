@@ -28,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 
     MatToolbarModule,
     BloodCenterRegisterModule,
-    HttpClientModule
+    HttpClientModule,
 
 
     MatToolbarModule,
