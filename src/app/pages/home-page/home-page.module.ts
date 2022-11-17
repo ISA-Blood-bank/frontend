@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { BloodCentersDisplayComponent } from './components/blood-centers-display/blood-centers-display.component';
 
 import { MaterialModule } from 'src/app/material/material.module';
+
 import { MatTableModule } from '@angular/material/table';
 
-
+import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -14,15 +16,16 @@ import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     BloodCentersDisplayComponent,
+    UserRegisterComponent,
     
   ],
   imports: [
     CommonModule,
 
     MaterialModule,
-    MatTableModule
 
-
+    MatTableModule,
+    MatSelectModule,
 
   ]
 })
