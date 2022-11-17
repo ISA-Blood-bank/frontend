@@ -1,0 +1,83 @@
+
+  <div class="profile-div">
+    <div class="left">
+        <img class="profile-pic" src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png">
+        <mat-label class="user-name">{{loggedUser.name}} {{loggedUser.surname}}</mat-label>
+        <mat-label class="email">{{loggedUser.email}}</mat-label>
+    </div>
+    <mat-divider vertical></mat-divider>
+    <div class="right">
+        <mat-label class="heading">PERSONAL DETAILS</mat-label>
+        <form (ngSubmit)="onSubmit()">
+          <table>
+              <tr>
+                  <td>
+                      <mat-label class="p-question">Last name</mat-label>
+                      <input name="surname" ngModel="{{editUser?.surname}}" type="text">
+                  </td>
+                  <td>
+                      <mat-label class="p-question">First name</mat-label>
+                      <input ngModel="{{editUser?.name}}" name="ime" type="text">
+                  </td>
+                  <td>
+                      <mat-label class="p-question">Gender</mat-label>
+                      <select name="genders">
+                        <option value="Male" [selected]="loggedUser.gender == 0">Male</option>
+                        <option value="Female" [selected]="loggedUser.gender == 1">Female</option>
+                      </select>
+                  </td>
+                  <td>
+                      <mat-label class="p-question">JMBG</mat-label>
+                      <input ngModel="{{editUser?.jmbg}}" matInput name="jmbg" type="text">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <mat-label class="p-question">Street</mat-label>
+                      <input ngModel="{{editAddress?.street}}" matInput name="street" type="text">
+                  </td>
+                  <td>
+                    <mat-label class="p-question">Number</mat-label>
+                    <input ngModel="{{editAddress?.number}}" matInput name="number" type="text">
+                </td>
+                <td>
+                    <mat-label class="p-question">City</mat-label>
+                    <input ngModel="{{editAddress?.city}}" matInput name="city" type="text">
+                </td>
+                <td>
+                    <mat-label class="p-question">Country</mat-label>
+                    <input ngModel="{{editAddress?.country}}" matInput name="country" type="text">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <mat-label class="p-question">Occupation</mat-label>
+                    <input id="occupation" type="text" value="{{loggedUser.occupation}}">
+                </td>
+                  <td>
+                      <mat-label class="p-question">Job or Scool Info</mat-label>
+                      <input id="job" type="text" value="{{loggedUser.jobOrSchoolInfo}}">
+                  </td>
+              </tr>
+          </table>
+          <button mat-raised-button type="submit">Save changes</button>
+        </form>
+        <mat-label class="heading">LOYALITY PROGRAM</mat-label>
+        <table>
+            <tr>
+                <td>
+                    <mat-label class="p-question">Category</mat-label>
+                    <mat-label calss="p-answer">{{loggedUser.category}}</mat-label>
+                </td>
+                <td>
+                    <mat-label class="p-question">Points</mat-label>
+                    <mat-label calss="p-answer">{{loggedUser.points}}</mat-label>
+                </td>
+                <td>
+                    <mat-label class="p-question">Penalties</mat-label>
+                    <mat-label calss="p-answer">{{loggedUser.penalties}}</mat-label>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
