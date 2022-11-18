@@ -5,6 +5,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BloodCenter } from '../../interfaces/BloodCenter';
 import { BloodBankService } from '../../services/blood-bank.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 const ELEMENT_DATA: BloodCenter[]=[
   {id: 1, 
@@ -40,6 +41,16 @@ const ELEMENT_DATA: BloodCenter[]=[
 export class BloodCentersDisplayComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<BloodCenter>();
+  public rateMin;
+  public rateMax;
+
+  filterForm = new FormGroup({
+    fromRating: new FormControl(),
+    toRating: new FormControl(),
+});
+
+  get fromRating() { return this.filterForm.get('fromRating').value; }
+  get toRating() { return this.filterForm.get('toRating').value; }
 
   displayedColumns: string[] = ['name', 'street', 'number', 'city', 'country', 'description', 'averageScore'];
 
@@ -49,9 +60,14 @@ export class BloodCentersDisplayComponent implements OnInit {
   sort!: MatSort;
   
   ngOnInit(): void {
-    this.dataSource.filterPredicate = function(data, filter: string): boolean {
-      return data.name.toLowerCase().includes(filter) || data.address.city.toLowerCase().includes(filter);
-    };
+    this.dataSource.filterPredicate = (data, filter) =>{
+      let conditions = true;
+      if (this.fromRating && this.toRating) {
+          conditions = conditions && (data.averageScore >= this.fromRating && data.averageScore <= this.toRating);
+      }
+      conditions = conditions && (data.name.toLowerCase().includes(filter) || data.address.city.toLowerCase().includes(filter));
+      return conditions;
+    }
     this.bloodBankService.findAll().subscribe((data) => {
       this.dataSource.data = data;
       this.dataSource.sortingDataAccessor = (item, property) => {
@@ -90,6 +106,9 @@ export class BloodCentersDisplayComponent implements OnInit {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
+  }
+  filterRate(){
+    this.dataSource.filter = ''+Math.random();
   }
 
 }
