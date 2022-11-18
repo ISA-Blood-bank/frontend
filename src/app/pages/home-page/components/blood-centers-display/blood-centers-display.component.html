@@ -3,6 +3,17 @@
     <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Search">
   </mat-form-field>
 </div>
+<div>
+  <form [formGroup]="filterForm">
+    <mat-form-field>
+      <input #fromRating matInput formControlName="fromRating" ngModel name="filterRateMin" placeholder="from">
+    </mat-form-field>
+    <mat-form-field>
+      <input #toRating matInput formControlName="toRating" name="filterRateMax" placeholder="to">
+    </mat-form-field>
+    <button mat-raised-button  (click)="filterRate()">Filter by rating</button>
+  </form>
+</div>
 <div class="container">
   <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
