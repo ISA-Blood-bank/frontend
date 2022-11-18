@@ -31,10 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatToolbarModule,
     BloodCenterRegisterModule,
     HttpClientModule,
-    MatFormFieldModule
-    
-
-
+    MatFormFieldModule,
     UserProfileModule,
   ],
   providers: [],
