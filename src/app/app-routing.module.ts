@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BloodCenterRegisterFormComponent } from './pages/blood-center-register/components/blood-center-register-form/blood-center-register-form.component';
 import { UserRegisterComponent } from './pages/home-page/components/user-register/user-register.component';
+import { RegisteredUsersDisplayComponent } from './pages/home-page/components/registered-users-display/registered-users-display/registered-users-display.component';
 
 const routes: Routes = [
   { path: '', component: BloodCentersDisplayComponent},
   { path: 'centerRegister', component: BloodCenterRegisterFormComponent },
-  { path: 'userRegister', component: UserRegisterComponent }
+  { path: 'userRegister', component: UserRegisterComponent },
+  { path: 'userView', component: RegisteredUsersDisplayComponent }
 ];
 
 @NgModule({

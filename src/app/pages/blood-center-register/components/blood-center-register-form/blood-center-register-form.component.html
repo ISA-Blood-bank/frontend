@@ -22,7 +22,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="legacy">
-          <mat-select ngModel name="gender" #gender="ngModel">
+          <mat-select   ngModel name="gender" #gender="ngModel">
               <mat-option [value]='0' >Male</mat-option>
               <mat-option  [value]='1' >Female</mat-option>
           </mat-select>
@@ -62,7 +62,7 @@
           </mat-form-field>
         
         <mat-form-field appearance="legacy">
-          <mat-select ngModel name="bc" #bc="ngModel">
+          <mat-select  ngModel name="bc" #bc="ngModel">
               <mat-option   [value]="i" *ngFor="let i of bloodCenters">
               {{i.name}}
               </mat-option>

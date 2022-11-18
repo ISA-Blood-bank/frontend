@@ -14,4 +14,7 @@ export class RegisterUserService {
   save(newUser: RegistredUser){
     return this.http.post<RegistredUser>(this.url + '/api/registeredusers/add', newUser);
   }
+  findAll(){
+    return this.http.get<RegistredUser[]>(this.url + '/api/registeredusers/all');
+  }
 }

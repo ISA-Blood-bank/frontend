@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { MatSelectModule } from '@angular/material/select';
+import { RegisteredUsersDisplayComponent } from './components/registered-users-display/registered-users-display/registered-users-display.component';
 
 
 
@@ -17,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
   declarations: [
     BloodCentersDisplayComponent,
     UserRegisterComponent,
+    RegisteredUsersDisplayComponent,
     
   ],
   imports: [
