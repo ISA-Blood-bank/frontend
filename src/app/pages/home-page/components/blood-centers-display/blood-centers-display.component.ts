@@ -39,7 +39,8 @@ const ELEMENT_DATA: BloodCenter[]=[
 })
 export class BloodCentersDisplayComponent implements OnInit {
 
-  public dataSource = new MatTableDataSource(ELEMENT_DATA);
+  public dataSource = new MatTableDataSource<BloodCenter>();
+
   displayedColumns: string[] = ['name', 'street', 'number', 'city', 'country', 'description', 'averageScore'];
 
   constructor(private bloodBankService: BloodBankService, private _liveAnnouncer: LiveAnnouncer) { }
@@ -48,10 +49,11 @@ export class BloodCentersDisplayComponent implements OnInit {
   sort!: MatSort;
   
   ngOnInit(): void {
-    this.bloodBankService.findAll()
-    .subscribe((data) => { this.dataSource.data = data;});
+    this.dataSource.filterPredicate = function(data, filter: string): boolean {
+      return data.name.toLowerCase().includes(filter) || data.address.city.toLowerCase().includes(filter);
+    };
     this.bloodBankService.findAll().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.data = data;
       this.dataSource.sortingDataAccessor = (item, property) => {
         switch(property) {
           case 'city': return item.address.city;
@@ -81,8 +83,15 @@ export class BloodCentersDisplayComponent implements OnInit {
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+      
   }
   
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
+
 }
 function subscribe(arg0: (data: any) => void) {
   throw new Error('Function not implemented.');
