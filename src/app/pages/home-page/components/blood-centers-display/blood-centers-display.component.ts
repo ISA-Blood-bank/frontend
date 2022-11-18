@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { BloodCenter } from '../../interfaces/BloodCenter';
 import { BloodBankService } from '../../services/blood-bank.service';
 
@@ -37,13 +38,23 @@ export class BloodCentersDisplayComponent implements OnInit {
 
   constructor(private bloodBankService: BloodBankService) { }
 
-  public dataSource : BloodCenter[] = [];
+  public dataSource = new MatTableDataSource<BloodCenter>();
+  public banks: BloodCenter[] = [];
   displayedColumns: string[] = ['name', 'street', 'number', 'city', 'country', 'description', 'averageScore'];
 
   ngOnInit(): void {
+    this.dataSource.filterPredicate = function(data, filter: string): boolean {
+      return data.name.toLowerCase().includes(filter) || data.address.city.toLowerCase().includes(filter);
+    };
     this.bloodBankService.findAll().subscribe((data) => {
-      this.dataSource = data;
+      this.banks = data;
+      this.dataSource.data = this.banks;
     });
+  }
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
   }
 
 }

@@ -8,7 +8,7 @@
     <mat-divider vertical></mat-divider>
     <div class="right">
         <mat-label class="heading">PERSONAL DETAILS</mat-label>
-        <form (ngSubmit)="onSubmit()">
+        <form #editForm="ngForm" (ngSubmit)="updateUser(editForm.value)">
           <table>
               <tr>
                   <td>
@@ -17,14 +17,14 @@
                   </td>
                   <td>
                       <mat-label class="p-question">First name</mat-label>
-                      <input ngModel="{{editUser?.name}}" name="ime" type="text">
+                      <input ngModel="{{editUser?.name}}" name="name" type="text">
                   </td>
                   <td>
                       <mat-label class="p-question">Gender</mat-label>
-                      <select name="genders">
-                        <option value="Male" [selected]="loggedUser.gender == 0">Male</option>
-                        <option value="Female" [selected]="loggedUser.gender == 1">Female</option>
-                      </select>
+                      <mat-select name="gender" ngModel="{{editUser?.gender}}">
+                        <mat-option value="0" selected="loggedUser.gender == 0">Male</mat-option>
+                        <mat-option value="1" selected="loggedUser.gender == 1">Female</mat-option>
+                      </mat-select>
                   </td>
                   <td>
                       <mat-label class="p-question">JMBG</mat-label>
@@ -48,15 +48,24 @@
                     <mat-label class="p-question">Country</mat-label>
                     <input ngModel="{{editAddress?.country}}" matInput name="country" type="text">
                 </td>
+                <td>
+                    <input hidden="true" ngModel="{{editUser?.id}}" matInput name="id" type="text">
+                    <input hidden="true" ngModel="{{editUser?.email}}" matInput name="email" type="text">
+                    <input hidden="true" ngModel="{{editUser?.category}}" matInput name="category" type="text">
+                    <input hidden="true" ngModel="{{editUser?.points}}" matInput name="points" type="text">
+                    <input hidden="true" ngModel="{{editUser?.penalties}}" matInput name="penalties" type="text">
+                    <input hidden="true" ngModel="{{editUser?.password}}" matInput name="password" type="text">
+                    <input hidden="true" ngModel="{{editAddress?.id}}" matInput name="id" type="text">
+                </td>
               </tr>
               <tr>
                 <td>
                     <mat-label class="p-question">Occupation</mat-label>
-                    <input id="occupation" type="text" value="{{loggedUser.occupation}}">
+                    <input id="occupation" ngModel="{{editUser?.occupation}}" matInput name="occupation" type="text" >
                 </td>
                   <td>
                       <mat-label class="p-question">Job or Scool Info</mat-label>
-                      <input id="job" type="text" value="{{loggedUser.jobOrSchoolInfo}}">
+                      <input id="job" ngModel="{{editUser?.jobOrSchoolInfo}}" matInput name="jobOrSchoolInfo" type="text">
                   </td>
               </tr>
           </table>
