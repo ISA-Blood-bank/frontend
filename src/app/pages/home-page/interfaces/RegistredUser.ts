@@ -15,5 +15,5 @@ export interface RegistredUser{
     points: number;
     category: number;
     penalties: number;
-    phone: number;
+    phone: string;
 }

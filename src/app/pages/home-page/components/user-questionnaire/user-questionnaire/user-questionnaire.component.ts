@@ -97,7 +97,8 @@ export class UserQuestionnaireComponent implements OnInit {
       jobOrSchoolInfo: "",
       points: 0,
       category: 0,
-      penalties:0
+      penalties:0,
+      phone: ""
     }
     }
     console.log(questionnaire);

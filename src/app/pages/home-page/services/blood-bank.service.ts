@@ -1,3 +1,4 @@
+import { BloodCenterDto } from './../interfaces/dtos/BloodCenterDto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BloodCenter } from '../interfaces/BloodCenter';

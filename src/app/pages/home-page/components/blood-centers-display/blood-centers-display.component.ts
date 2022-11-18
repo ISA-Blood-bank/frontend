@@ -29,7 +29,7 @@ const ELEMENT_DATA: BloodCenter[]=[
     country: 'Srbija',
   },
   description: 'super',
-  averageScore: 5
+  averageScore: 5,
 }]
 
 @Component({
