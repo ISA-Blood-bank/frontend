@@ -1,0 +1,58 @@
+
+   
+  <form class="search">
+    <mat-form-field class="example-full-width">
+        <mat-label>Search user</mat-label>
+        <input matInput type="search" name="key" id="searchname" placeholder="Name Surname" (ngModelChange)="search(key.value)" #key="ngModel" ngModel>
+      </mat-form-field>
+  </form>
+<table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="surname">
+      <th mat-header-cell *matHeaderCellDef>Surname</th>
+      <td mat-cell *matCellDef="let element">{{ element.surname }}</td>
+    </ng-container>
+    <ng-container matColumnDef="jmbg">
+        <th mat-header-cell *matHeaderCellDef>JMBG</th>
+        <td mat-cell *matCellDef="let element">{{ element.jmbg }}</td>
+      </ng-container>
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </ng-container>
+  
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>Adress</th>
+      <td mat-cell *matCellDef="let element">{{ element.address.street}}&nbsp;{{ element.address.number }},&nbsp;{{ element.address.city}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef>State</th>
+        <td mat-cell *matCellDef="let element">{{ element.address.country }}</td>
+    </ng-container>
+    <ng-container matColumnDef="points">
+        <th mat-header-cell *matHeaderCellDef>Points</th>
+        <td mat-cell *matCellDef="let element">{{ element.points }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+    </ng-container>
+    <ng-container matColumnDef="penalties">
+        <th mat-header-cell *matHeaderCellDef>Penalties</th>
+        <td mat-cell *matCellDef="let element">{{ element.penalties }}</td>
+    </ng-container>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
+  </table>

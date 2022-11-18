@@ -10,6 +10,7 @@ import { UserProfileModule } from './pages/user-profile/user-profile.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { BloodCenterRegisterModule } from './pages/blood-center-register/blood-center-register.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -27,6 +28,13 @@ import { BloodCenterRegisterModule } from './pages/blood-center-register/blood-c
     MatToolbarModule,
     BloodCenterRegisterModule,
     HttpClientModule,
+    MatToolbarModule,
+    BloodCenterRegisterModule,
+    HttpClientModule,
+    MatFormFieldModule
+    
+
+
     UserProfileModule,
   ],
   providers: [],
