@@ -1,3 +1,4 @@
+import { BloodCenterDto } from './../../../home-page/interfaces/dtos/BloodCenterDto';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
@@ -39,6 +40,14 @@ export class BloodCenterRegisterFormComponent implements OnInit {
       country: admin.country
     }
 
+    let bloodCenter1: BloodCenter ={
+      id: admin.bc.id,
+      name: admin.bc.name,
+      address: admin.bc.addres,
+      description: admin.bc.description,
+      averageScore: admin.bc.averageScore
+    }
+
 
     let newMedicalStaff: MedicalStaff ={
       id: -1,
@@ -48,7 +57,7 @@ export class BloodCenterRegisterFormComponent implements OnInit {
       gender: admin.gender,
       email: admin.email,
       address: address1,
-      bloodCenter :admin.bc
+      bloodCenter :bloodCenter1
     } 
     this.registrationMedicalStaffService.save(newMedicalStaff).subscribe(
       (data) => {
