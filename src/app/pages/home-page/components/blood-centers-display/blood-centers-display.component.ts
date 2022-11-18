@@ -39,7 +39,7 @@ const ELEMENT_DATA: BloodCenter[]=[
 })
 export class BloodCentersDisplayComponent implements OnInit {
 
-  public dataSource = new MatTableDataSource(ELEMENT_DATA);
+  public dataSource = new MatTableDataSource<BloodCenter>();
 
   displayedColumns: string[] = ['name', 'street', 'number', 'city', 'country', 'description', 'averageScore'];
 
@@ -53,7 +53,7 @@ export class BloodCentersDisplayComponent implements OnInit {
       return data.name.toLowerCase().includes(filter) || data.address.city.toLowerCase().includes(filter);
     };
     this.bloodBankService.findAll().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.data = data;
       this.dataSource.sortingDataAccessor = (item, property) => {
         switch(property) {
           case 'city': return item.address.city;

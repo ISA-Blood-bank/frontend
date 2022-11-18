@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: BloodCentersDisplayComponent},
   { path: 'centerRegister', component: BloodCenterRegisterFormComponent },
   { path: 'userRegister', component: UserRegisterComponent },
-  { path: 'userQuestionnaire', component: UserQuestionnaireComponent }
+  { path: 'userQuestionnaire', component: UserQuestionnaireComponent },
   { path: 'userRegister', component: UserRegisterComponent },
   { path: 'myprofile', component: ProfileViewComponent },
 ];
