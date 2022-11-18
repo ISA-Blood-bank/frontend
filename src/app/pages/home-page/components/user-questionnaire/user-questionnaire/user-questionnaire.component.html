@@ -1,0 +1,215 @@
+<div class="container">
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+        <label id="example-radio-group-label">Da li ste do sada dobrovoljno davali krv ili komponente krvi?</label>
+        <br>
+        <input type="radio" id="da1" name="question1" [value]=true formControlName="question1">
+        <label for="da1" required>Da</label>
+        <input type="radio" id="ne1" name="question1" [value]=false formControlName="question1">
+        <label for="ne1">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste ikada bili odbijeni kao davalac krvi ili komponente krvi?</label>
+        <br>
+        <input type="radio" id="da2" name="question2" [value]=true formControlName="question2">
+        <label for="da2">Da</label>
+        <input type="radio" id="ne2" name="question2" [value]=false formControlName="question2">
+        <label for="ne2">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li se trenutno osećate zdravim, sposobnim i odmornim da date krv ili komponente krvi?</label>
+        <br>
+        <input type="radio" id="da3" name="question3" [value]=true formControlName="question3">
+        <label for="da3">Da</label>
+        <input type="radio" id="ne3" name="question3" [value]=false formControlName="question3">
+        <label for="ne3">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste nešto jeli pre dolaska na davanje krvi ili komponente krvi?</label>
+        <br>
+        <input type="radio" id="da4" name="question4" [value]=true formControlName="question4">
+        <label for="da4">Da</label>
+        <input type="radio" id="ne4" name="question4" [value]=false formControlName="question4">
+        <label for="ne4">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li se bavite opasnim zanimanjem ili hobijem?</label>
+        <br>
+        <input type="radio" id="da5" name="question5" [value]=true formControlName="question5">
+        <label for="da5">Da</label>
+        <input type="radio" id="ne5" name="question5" [value]=false formControlName="question5">
+        <label for="ne5">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li redovno (svakodnevno) uzimate bilo kakve lekove?</label>
+        <br>
+        <input type="radio" id="da6" name="question6" [value]=true formControlName="question6">
+        <label for="da6">Da</label>
+        <input type="radio" id="ne6" name="question6" [value]=false formControlName="question6">
+        <label for="ne6">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste poslednja 2-3 dana uzimali bilo kakve lekove (npr. Brufen, Kafetin, Analgin...)?</label>
+        <br>
+        <input type="radio" id="da7" name="question7" [value]=true formControlName="question7">
+        <label for="da7">Da</label>
+        <input type="radio" id="ne7" name="question7" [value]=false formControlName="question7">
+        <label for="ne7">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li stalno uzimate Aspirin (Cardiopirin)? Da li ste ga uzimali u poslednjih 5 dana?</label>
+        <br>
+        <input type="radio" id="da8" name="question8" [value]=true formControlName="question8">
+        <label for="da8">Da</label>
+        <input type="radio" id="ne8" name="question8" [value]=false formControlName="question8">
+        <label for="ne8">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste do sada ispitivani ili lečeni u bolnici ili ste trenutno na ispitivanju ili bolovanju?</label>
+        <br>
+        <input type="radio" id="da9" name="question9" [value]=true formControlName="question9">
+        <label for="da9">Da</label>
+        <input type="radio" id="ne9" name="question9" [value]=false formControlName="question9">
+        <label for="ne9">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste ikada bili odbijeni kao davalac krvi ili komponente krvi?</label>
+        <br>
+        <input type="radio" id="da10" name="question10" [value]=true formControlName="question10">
+        <label for="da10">Da</label>
+        <input type="radio" id="ne10" name="question10" [value]=false formControlName="question10">
+        <label for="ne10">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste u poslednjih 7 do 10 dana imali temperaturu preko 38 C, kijavicu, prehladu ili uzimali antibiotike?</label>
+        <br>
+        <input type="radio" id="da11" name="question11" [value]=true formControlName="question11">
+        <label for="da11">Da</label>
+        <input type="radio" id="ne11" name="question11" [value]=false formControlName="question11">
+        <label for="ne11">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste primili bilo koju vakcinu ili serum u proteklih 12 meseci?</label>
+        <br>
+        <input type="radio" id="da12" name="question12" [value]=true formControlName="question12">
+        <label for="da12">Da</label>
+        <input type="radio" id="ne12" name="question12" [value]=false formControlName="question12">
+        <label for="ne12">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste u poslednjih 6 meseci naglo izgubili na težini?</label>
+        <br>
+        <input type="radio" id="da13" name="question13" [value]=true formControlName="question13">
+        <label for="da13">Da</label>
+        <input type="radio" id="ne13" name="question13" [value]=false formControlName="question13">
+        <label for="ne13">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste imali ubode krpelja u proteklih 12 meseci i da li ste se zbog toga javljali lekaru?</label>
+        <br>
+        <input type="radio" id="da14" name="question14" [value]=true formControlName="question14">
+        <label for="da14">Da</label>
+        <input type="radio" id="ne14" name="question14" [value]=false formControlName="question14">
+        <label for="ne14">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste ikada lečeni od epilepsije (padavice), šećerne bolesti, astme, tuberkuloze, infarkta, moždanog udara,
+            malignih oboljenja, mentalnih bolesti ili malarije?</label>
+        <br>
+        <input type="radio" id="da15" name="question15" [value]=true formControlName="question15">
+        <label for="da15">Da</label>
+        <input type="radio" id="ne15" name="question15" [value]=false formControlName="question15">
+        <label for="ne15">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li bolujete od neke druge hronične bolesti: srca, pluća, bubrega, jetre, želuca i creva, kostiju i zglobova,
+            nervnog sistema, krvi i krvnih sudova?</label>
+        <br>
+        <input type="radio" id="da16" name="question16" [value]=true formControlName="question16">
+        <label for="da16">Da</label>
+        <input type="radio" id="ne16" name="question16" [value]=false formControlName="question16">
+        <label for="ne16">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste ikada imali problema sa štitastom žlezdom, hipofizom i/ili primali hormone?</label>
+        <br>
+        <input type="radio" id="da17" name="question17" [value]=true formControlName="question17">
+        <label for="da17">Da</label>
+        <input type="radio" id="ne17" name="question17" [value]=false formControlName="question17">
+        <label for="ne17">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li imate neke promene na koži ili bolujete od alergije?</label>
+        <br>
+        <input type="radio" id="da18" name="question18" [value]=true formControlName="question18">
+        <label for="da18">Da</label>
+        <input type="radio" id="ne18" name="question18" [value]=false formControlName="question18">
+        <label for="ne18">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li dugo krvarite posle povrede ili spontano dobijate modrice?</label>
+        <br>
+        <input type="radio" id="da19" name="question19" [value]=true formControlName="question19">
+        <label for="da19">Da</label>
+        <input type="radio" id="ne19" name="question19" [value]=false formControlName="question19">
+        <label for="ne19">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste u proteklih 6 meseci imali neku operaciju ili primili krv?</label>
+        <br>
+        <input type="radio" id="da20" name="question20" [value]=true formControlName="question20">
+        <label for="da20">Da</label>
+        <input type="radio" id="ne20" name="question20" [value]=false formControlName="question20">
+        <label for="ne20">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste pili alkohol u poslednjih 6 sati?</label>
+        <br>
+        <input type="radio" id="da21" name="question21" [value]=true formControlName="question21">
+        <label for="da21">Da</label>
+        <input type="radio" id="ne21" name="question21" [value]=false formControlName="question21">
+        <label for="ne21">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste bolovali ili bolujete od hepatitisa (žutice) A, B ili C?</label>
+        <br>
+        <input type="radio" id="da22" name="question22" [value]=true formControlName="question22">
+        <label for="da22">Da</label>
+        <input type="radio" id="ne22" name="question22" [value]=false formControlName="question22">
+        <label for="ne22">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste imali seksualne odnose tokom proteklih 6 meseci bez zaštite sa osobom koja je HIV pozitivna?</label>
+        <br>
+        <input type="radio" id="da23" name="question23" [value]=true formControlName="question23">
+        <label for="da23">Da</label>
+        <input type="radio" id="ne23" name="question23" [value]=false formControlName="question23">
+        <label for="ne23">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste u drugom stanju?</label>
+        <br>
+        <input type="radio" id="da24" name="question24" [value]=true formControlName="question24">
+        <label for="da24">Da</label>
+        <input type="radio" id="ne24" name="question24" [value]=false formControlName="question24">
+        <label for="ne24">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li trenutno imate menstruaciju?</label>
+        <br>
+        <input type="radio" id="da25" name="question25" [value]=true formControlName="question25">
+        <label for="da25">Da</label>
+        <input type="radio" id="ne25" name="question25" [value]=false formControlName="question25">
+        <label for="ne25">Ne</label>
+
+        <br>
+        <label id="example-radio-group-label">Da li ste u poslednjih 6 meseci imali porođaj ili prekid trudnoće?</label>
+        <br>
+        <input type="radio" id="da26" name="question26" [value]=true formControlName="question26">
+        <label for="da26">Da</label>
+        <input type="radio" id="ne26" name="question26" [value]=false formControlName="question26">
+        <label for="ne26">Ne</label>
+
+        <br>
+        <input type="submit" value="Submit" id="btn" class="button-15">
+    </form>
+</div>
