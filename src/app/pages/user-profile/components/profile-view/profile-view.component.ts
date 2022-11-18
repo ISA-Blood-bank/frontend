@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Address } from 'src/app/pages/home-page/interfaces/Address';
 import { LoggedUser } from '../../interfaces/logged-user';
 import { UserService } from '../../services/user.service';
 
@@ -45,8 +46,15 @@ export class ProfileViewComponent implements OnInit {
     )
   }
 
-  public updateUser(user: LoggedUser): void{
-    user.address = this.editAddress;
+  public updateUser(user: any): void{
+    let addressUser: Address = {
+      id: user.addressId,
+      street: user.street,
+      number: user.number,
+      city: user.city,
+      country: user.country
+    }
+    user.address = addressUser;
     this.userService.updateUserInfo(user).subscribe(
       (response: LoggedUser) => {
         this.loggedUser = response;

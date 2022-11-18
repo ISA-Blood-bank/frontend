@@ -80,5 +80,18 @@
         height: 500px;
         float: left;
     }
+    .mat-raised-button{
+        margin-bottom: 40px;
+        font-size: medium;
+    }
+    input[type=text], mat-select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: medium;
+      }
 
 }

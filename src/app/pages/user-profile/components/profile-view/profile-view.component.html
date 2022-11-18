@@ -22,8 +22,8 @@
                   <td>
                       <mat-label class="p-question">Gender</mat-label>
                       <mat-select name="gender" ngModel="{{editUser?.gender}}">
-                        <mat-option value="0" selected="loggedUser.gender == 0">Male</mat-option>
-                        <mat-option value="1" selected="loggedUser.gender == 1">Female</mat-option>
+                        <mat-option value="0">Male</mat-option>
+                        <mat-option value="1">Female</mat-option>
                       </mat-select>
                   </td>
                   <td>
@@ -55,7 +55,7 @@
                     <input hidden="true" ngModel="{{editUser?.points}}" matInput name="points" type="text">
                     <input hidden="true" ngModel="{{editUser?.penalties}}" matInput name="penalties" type="text">
                     <input hidden="true" ngModel="{{editUser?.password}}" matInput name="password" type="text">
-                    <input hidden="true" ngModel="{{editAddress?.id}}" matInput name="id" type="text">
+                    <input hidden="true" ngModel="{{editAddress?.id}}" matInput name="addressId" type="text">
                 </td>
               </tr>
               <tr>
