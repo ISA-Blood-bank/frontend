@@ -19,7 +19,7 @@ import {  RegistrationMedicalStaffService } from '../../service/registration-med
 export class BloodCenterRegisterFormComponent implements OnInit {
 
   constructor(private bloodBankService: BloodBankService,private registrationMedicalStaffService: RegistrationMedicalStaffService) { }
-  selected = '';
+  
   public bloodCenters: BloodCenter[] =[];
   
 
