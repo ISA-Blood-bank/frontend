@@ -44,15 +44,11 @@ export class BloodCentersDisplayComponent implements OnInit {
   public rateMin;
   public rateMax;
   public order: string = "ASC";
+  public searched : BloodCenter[]=[];
+  public filtered : BloodCenter[]=[];
+  public together : BloodCenter[]=[];
 
-  filterForm = new FormGroup({
-    fromRating: new FormControl(),
-    toRating: new FormControl(),
-});
-
-  get fromRating() { return this.filterForm.get('fromRating').value; }
-  get toRating() { return this.filterForm.get('toRating').value; }
-
+  
   displayedColumns: string[] = ['name', 'street', 'number', 'city', 'country', 'description', 'averageScore'];
 
   constructor(private bloodBankService: BloodBankService, private _liveAnnouncer: LiveAnnouncer) { }
@@ -60,22 +56,43 @@ export class BloodCentersDisplayComponent implements OnInit {
   ngOnInit(): void {
   
     this.bloodBankService.findAll().subscribe((data) => {
-      this.dataSource.data = data;
-    }
-
+      this.dataSource.data = data;}
     );
                                     
   }
   
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim();
-    filterValue = filterValue.toLowerCase();
-    this.dataSource.filter = filterValue;
+  onSubmitSearch(inputSearch : any){
+    this.together=[];
+    this.bloodBankService.search(inputSearch.searchinput).subscribe((data) => {
+      this.dataSource.data = data;
+      this.searched=data;
+    });
   }
-  filterRate(){
-    this.dataSource.filter = ''+Math.random();
+  check(filteredList : BloodCenter[],searchedList : BloodCenter[]) 
+  {
+    for(let i=0;i<filteredList.length;i++)
+    {
+      for(let j=0;j<searchedList.length;j++)
+      {
+        if(filteredList[j].id===searchedList[i].id)
+        {
+        this.together.push(filteredList[j]);
+        }
+      }
+      
+    }
+   
+  };
+  onSubmitFilter(inputFilter : any){
+    this.together=[];
+    this.bloodBankService.filterBloodCenter(inputFilter.fromRating,inputFilter.toRating).subscribe((data) => {
+      this.filtered=data;
+      this.check(this.filtered,this.searched);
+      this.dataSource.data=this.together;
+     //this.dataSource.data = this.filtered.filter(value =>this.searched.includes(value));
+      console.log(this.dataSource.data);
+    });
   }
-
  findSorted(column: string){
 
   if(this.order === "ASC"){
@@ -88,10 +105,15 @@ export class BloodCentersDisplayComponent implements OnInit {
   });
 }
 
+
+
+
 }
 function subscribe(arg0: (data: any) => void) {
   throw new Error('Function not implemented.');
 }
+
+
 
 
 
