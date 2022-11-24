@@ -1,10 +1,11 @@
 
    
-  <form class="search">
+  <form class="search" #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm.value)">
     <mat-form-field class="example-full-width">
         <mat-label>Search user</mat-label>
-        <input matInput type="search" name="key" id="searchname" placeholder="Name Surname" (ngModelChange)="search(key.value)" #key="ngModel" ngModel>
+        <input matInput type="search" name="key" id="searchname" placeholder="Name Surname" #key="ngModel" ngModel>
       </mat-form-field>
+      <button type="submit" mat-stroked-button>Search</button>
   </form>
 <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
