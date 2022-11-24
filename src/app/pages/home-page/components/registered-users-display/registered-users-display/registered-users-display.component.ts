@@ -33,4 +33,11 @@ export class RegisteredUsersDisplayComponent implements OnInit {
     }
   }
 
+  public onSubmit(searchInput: any){
+    this.registerUserService.search(searchInput.key).subscribe((data) => {
+      this.dataSource = data;
+    });
+    console.log(searchInput.key);
+  }
+
 }

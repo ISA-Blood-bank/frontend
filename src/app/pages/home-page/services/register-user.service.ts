@@ -18,4 +18,8 @@ export class RegisterUserService {
   findAll(){
     return this.http.get<RegistredUser[]>(this.url + '/api/registeredusers/all');
   }
+
+  search(searchInput: any){
+    return this.http.get<RegistredUser[]>(this.url + `/api/registeredusers/searchRegisteredUser/${searchInput}`);
+  }
 }
