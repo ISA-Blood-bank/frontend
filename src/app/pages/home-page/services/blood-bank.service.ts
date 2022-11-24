@@ -15,6 +15,10 @@ export class BloodBankService {
   findAll(){
     return this.http.get<BloodCenter[]>(this.url + '/api/bloodCenters/all');
   }
+
+  findAllSorted(page: number, size: number, sortList: string, sortOrder: string){
+    return this.http.get<BloodCenter[]>(this.url + `/api/bloodCenters/sorted/${page}/${size}/${sortList}/${sortOrder}`);
+  }
   save(newUser: BloodCenter){
     return this.http.post<BloodCenter>(this.url + '/api/bloodCenters/add', newUser);
   }

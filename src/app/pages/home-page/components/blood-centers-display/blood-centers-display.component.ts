@@ -43,6 +43,7 @@ export class BloodCentersDisplayComponent implements OnInit {
   public dataSource = new MatTableDataSource<BloodCenter>();
   public rateMin;
   public rateMax;
+  public order: string = "ASC";
 
   filterForm = new FormGroup({
     fromRating: new FormControl(),
@@ -56,50 +57,14 @@ export class BloodCentersDisplayComponent implements OnInit {
 
   constructor(private bloodBankService: BloodBankService, private _liveAnnouncer: LiveAnnouncer) { }
 
-  @ViewChild(MatSort)
-  sort!: MatSort;
-  
   ngOnInit(): void {
-    this.dataSource.filterPredicate = (data, filter) =>{
-      let conditions = true;
-      if (this.fromRating && this.toRating) {
-          conditions = conditions && (data.averageScore >= this.fromRating && data.averageScore <= this.toRating);
-      }
-      conditions = conditions && (data.name.toLowerCase().includes(filter) || data.address.city.toLowerCase().includes(filter));
-      return conditions;
-    }
+  
     this.bloodBankService.findAll().subscribe((data) => {
       this.dataSource.data = data;
-      this.dataSource.sortingDataAccessor = (item, property) => {
-        switch(property) {
-          case 'city': return item.address.city;
-          case 'street': return item.address.street;
-          case 'country': return item.address.country;
-          case 'number': return item.address.number;
-          case 'name': return item.name;
-          case 'description': return item.description;
-          case 'averageScore': return item.averageScore;
-          default: return item.name;
-        }
-      };
-      this.dataSource.sort = this.sort;
     }
 
     );
                                     
-  }
-
-  announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-      
   }
   
   applyFilter(filterValue: string) {
@@ -111,8 +76,22 @@ export class BloodCentersDisplayComponent implements OnInit {
     this.dataSource.filter = ''+Math.random();
   }
 
+ findSorted(column: string){
+
+  if(this.order === "ASC"){
+    this.order = "DESC";
+  } else{
+    this.order = "ASC";
+  }
+  this.bloodBankService.findAllSorted(0, 10, column, this.order).subscribe((data) => {
+    this.dataSource.data = data;
+  });
+}
+
 }
 function subscribe(arg0: (data: any) => void) {
   throw new Error('Function not implemented.');
 }
+
+
 
