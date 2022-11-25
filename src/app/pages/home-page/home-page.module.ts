@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
 import { BloodCenterEditModule } from '../blood-center-edit/blood-center-edit.module';
 import { BloodCenterEditFormComponent } from '../blood-center-edit/blood-center-edit-form/blood-center-edit-form.component';
-
+import { MedicalStaffEditModule } from '../medical-staff-edit/medical-staff-edit.module';
 
 
 
@@ -44,7 +44,8 @@ import { BloodCenterEditFormComponent } from '../blood-center-edit/blood-center-
     MatRadioModule,
     ReactiveFormsModule,
     MatSortModule,
-    BloodCenterEditModule
+    BloodCenterEditModule,
+    MedicalStaffEditModule
 
   ]
 })

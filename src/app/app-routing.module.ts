@@ -7,6 +7,7 @@ import { RegisteredUsersDisplayComponent } from './pages/home-page/components/re
 import { ProfileViewComponent } from './pages/user-profile/components/profile-view/profile-view.component';
 import { UserQuestionnaireComponent } from './pages/home-page/components/user-questionnaire/user-questionnaire/user-questionnaire.component';
 import { BloodCenterEditFormComponent } from './pages/blood-center-edit/blood-center-edit-form/blood-center-edit-form.component';
+import { MedicalStaffEditFormComponent } from './pages/medical-staff-edit/medical-staff-edit-form/medical-staff-edit-form.component';
 
 const routes: Routes = [
   { path: '', component: BloodCentersDisplayComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'userRegister', component: UserRegisterComponent },
   { path: 'myprofile', component: ProfileViewComponent },
   { path: 'editBloodCenter', component: BloodCenterEditFormComponent },
+  { path: 'editMedicalStaff', component: MedicalStaffEditFormComponent}
 
 ];
 

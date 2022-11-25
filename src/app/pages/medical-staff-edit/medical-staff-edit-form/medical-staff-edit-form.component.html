@@ -1,0 +1,88 @@
+
+<h1>Editing medical staff</h1>
+<form #editForm = "ngForm" (ngSubmit)="updateMedicalStaff(editForm.value)">
+    <table>
+        <tr>
+            <td>
+                <mat-label>Name</mat-label>
+            </td>
+            <td>
+                <input name = "name" ngModel="{{editMedicalStaff?.name}}" type="text" matInput>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>surname</mat-label>
+            </td>
+            <td>
+                <input name = "surname" ngModel="{{editMedicalStaff?.surname}}" type="text" matInput>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Gender</mat-label>
+            </td>
+            <td>
+                <mat-select name="gender" ngModel="{{editMedicalStaff?.gender}}">
+                    <mat-option value="0">Male</mat-option>
+                    <mat-option value="1">Female</mat-option>
+                </mat-select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>JMBG</mat-label>
+            </td>
+            <td>
+                <input name = "jmbg" ngModel="{{editMedicalStaff?.jmbg}}" type="text" matInput>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Street</mat-label>
+            </td>
+            <td>
+                <input name = "street" ngModel="{{editAddress?.street}}" type="text" matInput>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Number</mat-label>
+            </td>
+            <td>
+                <input name = "number" ngModel="{{editAddress?.number}}" type="number" matInput min="1">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>City</mat-label>
+            </td>
+            <td>
+                <input name = "city" ngModel="{{editAddress?.city}}" type="text" matInput>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Country</mat-label>
+            </td>
+            <td>
+                <input name = "country" ngModel="{{editAddress?.country}}" type="text" matInput>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Password</mat-label>
+            </td>
+            <td>
+                <input name = "password" ngModel="{{editMedicalStaff?.password}}" type="password" matInput>
+            </td>
+        </tr>
+        
+        <tr>
+            <td><input type="text" ngModel="{{editMedicalStaff?.id}}" name="id" hidden = "true" matInput></td>
+            <td><input type="text" ngModel="{{editMedicalStaff?.bloodCenter}}" name="bloodCenter" hidden = "true" matInput></td>
+            <td><input type="text" ngModel="{{editAddress?.id}}" name="addressId" hidden = "true" matInput></td>
+        </tr>
+    </table>
+    <button mat-raised-button type="submit"> Save changes</button>
+</form>
