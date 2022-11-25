@@ -15,6 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
+import { BloodCenterEditModule } from '../blood-center-edit/blood-center-edit.module';
+import { BloodCenterEditFormComponent } from '../blood-center-edit/blood-center-edit-form/blood-center-edit-form.component';
 
 
 
@@ -27,7 +29,6 @@ import { MatSortModule } from '@angular/material/sort';
     UserRegisterComponent,
     RegisteredUsersDisplayComponent,
     UserQuestionnaireComponent,
-
     
   ],
   imports: [
@@ -42,7 +43,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatSortModule
+    MatSortModule,
+    BloodCenterEditModule
 
   ]
 })

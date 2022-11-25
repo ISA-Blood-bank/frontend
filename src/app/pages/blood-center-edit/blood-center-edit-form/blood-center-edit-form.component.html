@@ -1,1 +1,52 @@
-<p>blood-center-edit-form works!</p>
+<h1>Editing Blood center</h1>
+<div>
+  <form #editForm="ngForm" (ngSubmit)="updateBloodCenter(editForm.value)">
+    <table>
+        <tr>
+            <td>
+                <mat-label>Name</mat-label>              
+            </td>
+            <td><input name = "name" ngModel="{{editBloodCenter.name}}" type="text" matInput> </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Street</mat-label>
+                
+            </td>
+            <td><input name = "street" ngModel="{{editAddress.street}}" type="text" matInput> </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Number</mat-label> 
+            </td>
+            <td><input name = "number" ngModel="{{editAddress.number}}" type="number" min="1" matInput></td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>City</mat-label>    
+            </td>
+            <td><input name = "city" ngModel="{{editAddress.city}}" type="text" matInput> </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Country</mat-label>  
+            </td>
+            <td><input name = "country" ngModel="{{editAddress.country}}" type="text" matInput></td>
+        </tr>
+        <tr>
+            <td>
+                <mat-label>Description</mat-label>   
+            </td>
+            <td><input name = "description" ngModel="{{editBloodCenter.description}}" type="text" matInput></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" hidden="true" ngModel="{{editBloodCenter.id}}" matInput name="id">
+                <input type="text" hidden="true" ngModel="{{editBloodCenter.averageScore}}" matInput name="averageScore">
+                <input type="text" hidden="true" ngModel="{{editAddress.id}}" matInput name="addressId">
+            </td>
+        </tr>
+    </table>
+    <button mat-raised-button type="submit">Save changes</button>
+  </form>
+</div>

@@ -1,19 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { BloodCenter } from '../../home-page/interfaces/BloodCenter';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BloodCenterEditService {
-  url = "http://localhost:8080";
+
+  private apiUrl = environment.apiBaseUrl;
   constructor(private http: HttpClient) { }
 
   getBloodCenter(id: number){
-    return this.http.get<BloodCenter>(this.url + "api/bloodCenters/find/" + id)
+    return this.http.get<BloodCenter>(`${this.apiUrl}/api/bloodCenters/find/${id}`)
   }
 
   updateBloodCenter(bloodCenter: BloodCenter){
-    return this.http.put<BloodCenter>(this.url + "api/bloodCenters/update", bloodCenter)
+    return this.http.put<BloodCenter>(`${this.apiUrl}/api/bloodCenters/update`, bloodCenter)
   }
 }
