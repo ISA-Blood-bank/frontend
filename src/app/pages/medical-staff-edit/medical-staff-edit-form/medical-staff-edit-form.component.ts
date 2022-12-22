@@ -18,6 +18,7 @@ export class MedicalStaffEditFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMedicalStaff(1)
+    
   }
 
   public getMedicalStaff(id: number):void{
@@ -29,6 +30,7 @@ export class MedicalStaffEditFormComponent implements OnInit {
         this.editAddress = response.address;
       }
     )
+    console.log(this.medicalStaff.gender)
   }
 
   public updateMedicalStaff(ms: MedicalStaff): void {
@@ -40,6 +42,7 @@ export class MedicalStaffEditFormComponent implements OnInit {
       country: this.medicalStaff.address.country
     }
 
+    console.log(ms)
     ms.address = addressBC
     this.editMedicalStaffService.updateMedicalStaff(ms).subscribe(
       (response: MedicalStaff) => {
