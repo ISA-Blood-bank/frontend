@@ -5,6 +5,7 @@ import { MatButton } from '@angular/material/button';
 import { FormControl, FormGroup } from '@angular/forms';
 import { QuestionnaireService } from '../../../services/questionnaire.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NewappointmentService } from 'src/app/pages/schedule-new-appointment/services/newappointment.service';
 
 @Component({
   selector: 'app-user-questionnaire',
@@ -15,7 +16,7 @@ export class UserQuestionnaireComponent implements OnInit {
 
   reactiveForm: FormGroup;
   
-  constructor(private questionnaireService: QuestionnaireService) { }
+  constructor(private questionnaireService: QuestionnaireService, private appointmentService: NewappointmentService) { }
 
   ngOnInit(): void {
     console.log(history.state);
@@ -113,6 +114,16 @@ export class UserQuestionnaireComponent implements OnInit {
         alert(error.message);
       }
     );
+    if(history.state.id != null){
+      this.appointmentService.scheduleAppointment(history.state.id).subscribe(
+        (data) => {
+          alert("Your appointment is scheduled!");
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+    }
     
   }
 

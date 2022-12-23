@@ -18,4 +18,9 @@ export class NewappointmentService {
   findAvaiableAppointments(dto : RecommendDto){
     return this.http.post<RetAppointment[]>(`${this.url}/api/appointments/getavailable`, dto);
   }
+  public scheduleAppointment(
+    appointmentId: number
+  ): Observable<RetAppointment> {
+    return this.http.put<RetAppointment>(`${this.url}`, appointmentId);
+  }
 }
