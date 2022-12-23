@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
+import { LoginComponent } from './components/user-login/login/login.component';
 
 
 
@@ -27,6 +28,7 @@ import { MatSortModule } from '@angular/material/sort';
     UserRegisterComponent,
     RegisteredUsersDisplayComponent,
     UserQuestionnaireComponent,
+    LoginComponent,
 
     
   ],

@@ -6,6 +6,7 @@ import { UserRegisterComponent } from './pages/home-page/components/user-registe
 import { RegisteredUsersDisplayComponent } from './pages/home-page/components/registered-users-display/registered-users-display/registered-users-display.component';
 import { ProfileViewComponent } from './pages/user-profile/components/profile-view/profile-view.component';
 import { UserQuestionnaireComponent } from './pages/home-page/components/user-questionnaire/user-questionnaire/user-questionnaire.component';
+import { LoginComponent } from './pages/home-page/components/user-login/login/login.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'userQuestionnaire', component: UserQuestionnaireComponent },
   { path: 'userRegister', component: UserRegisterComponent },
   { path: 'myprofile', component: ProfileViewComponent },
+  { path: 'login', component: LoginComponent },
+  
 ];
 
 @NgModule({
