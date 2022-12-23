@@ -15,6 +15,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { ScheduleModule, RecurrenceEditorModule,DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+import { AppComponent } from 'src/app/app.component';
 
 
 
@@ -27,6 +30,7 @@ import { MatSortModule } from '@angular/material/sort';
     UserRegisterComponent,
     RegisteredUsersDisplayComponent,
     UserQuestionnaireComponent,
+    CalendarComponent,
 
     
   ],
@@ -42,8 +46,11 @@ import { MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatSortModule
+    MatSortModule,
+    ScheduleModule, RecurrenceEditorModule,
 
-  ]
+  ],
+  providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService],
+  bootstrap: [AppComponent]
 })
 export class HomePageModule { }

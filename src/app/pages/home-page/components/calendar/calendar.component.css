@@ -1,0 +1,12 @@
+.calendar_view{
+    width: 80%;
+    height: 75%;
+    overflow-y:scroll;
+    margin-left: 10%;
+   
+}
+h1{
+    margin-left: 10%;
+    margin-top: 3%;
+    font-size: 2rem;
+}

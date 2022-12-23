@@ -1,0 +1,69 @@
+<form #appointmentForm='ngForm' (ngSubmit)="getAppointment(appointmentForm.value)">
+    <div class="rgform">
+      <div class="info">
+        <p class="title"> Create new appointment </p>
+      </div>
+      <mat-form-field appearance="legacy">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" ngModel name="start" #start="ngModel">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Administrator surname</mat-label>
+        <input  matInput ngModel name="surname" #surname="ngModel" placeholder="Surname">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>JMBG</mat-label>
+        <input  matInput ngModel name="jmbg" #jmbg="ngModel" placeholder="xxxxxxxxxxxxx">
+        <mat-hint>Enter 13 digit number</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-select   ngModel name="gender" #gender="ngModel">
+            <mat-option [value]='0' >Male</mat-option>
+            <mat-option  [value]='1' >Female</mat-option>
+        </mat-select>
+        <mat-label>Gender</mat-label>
+        <mat-hint></mat-hint>
+    </mat-form-field>
+   
+      <mat-form-field appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input matInput ngModel name="email" #email="ngModel" placeholder="emailaddres@gmail.com">
+        <mat-hint>Enter administators email</mat-hint>
+      </mat-form-field>
+
+     
+        <mat-form-field appearance="legacy">
+          <mat-label>Street</mat-label>
+          <input  matInput ngModel name="street" #street="ngModel" placeholder="Street">
+          <mat-hint>Enter street</mat-hint>
+        </mat-form-field>
+  
+        <mat-form-field appearance="legacy">
+          <mat-label>Number</mat-label>
+          <input  matInput ngModel name="number" #number="ngModel" placeholder="Number">
+          <mat-hint>Enter number</mat-hint>
+        </mat-form-field>
+  
+        <mat-form-field appearance="legacy">
+          <mat-label>City</mat-label>
+          <input  matInput ngModel name="city" #city="ngModel" placeholder="City">
+          <mat-hint>Enter city</mat-hint>
+        </mat-form-field>
+  
+        <mat-form-field appearance="legacy">
+          <mat-label>Country</mat-label>
+          <input  matInput ngModel name="country" #country="ngModel" placeholder="Country">
+          <mat-hint>Enter country</mat-hint>
+        </mat-form-field>
+      
+      
+    <button mat-button>Submit</button>
+    </div>
+</form>
