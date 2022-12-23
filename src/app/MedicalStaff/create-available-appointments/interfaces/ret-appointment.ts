@@ -6,6 +6,5 @@ export interface RetAppointment {
     start:Date,
     duration:number,
     available:boolean,
-    bloodCenter: BloodCenter,
-    medicalStaff:RegistredUserDto
+    bloodCenter: BloodCenter
 }

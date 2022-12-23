@@ -12,6 +12,6 @@ export class AppointmentService {
   url = "http://localhost:8080";
 
   save(newAppointment: any){
-    return this.http.post<Appointment>(this.url + '/api/appointments/add', newAppointment);
+    return this.http.post<RetAppointment>(this.url + '/api/appointments/add', newAppointment);
   }
 }

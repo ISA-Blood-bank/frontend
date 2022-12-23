@@ -19,3 +19,17 @@
     <button mat-button>Submit</button>
     </div>
 </form>
+<div class="appointment-right">
+
+  <mat-card *ngFor="let i of appointments" >
+          <mat-card-header >Blood Center:{{i.bloodCenter.name}}</mat-card-header>
+          <mat-card-content>
+              City: {{i.bloodCenter.address.city}}<br> 
+              Rating: {{i.bloodCenter.averageScore}}
+          </mat-card-content>
+          <mat-card-footer> 
+              <button mat-button><a [routerLink]="['/userQuestionnaire']" [state]="{ id:i.id}">Schedule</a></button>
+          </mat-card-footer>
+  </mat-card>
+
+</div>

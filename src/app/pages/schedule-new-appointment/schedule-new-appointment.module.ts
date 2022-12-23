@@ -4,18 +4,21 @@ import { NewAppointmentFormComponent } from './components/new-appointment-form/n
 import { MaterialModule } from 'src/app/material/material.module';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { BloodCentersCardComponent } from './components/blood-centers-card/blood-centers-card.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    NewAppointmentFormComponent
+    NewAppointmentFormComponent,
+    BloodCentersCardComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    RouterModule
   ]
 })
 export class ScheduleNewAppointmentModule { }

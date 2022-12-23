@@ -18,6 +18,7 @@ export class UserQuestionnaireComponent implements OnInit {
   constructor(private questionnaireService: QuestionnaireService) { }
 
   ngOnInit(): void {
+    console.log(history.state);
     this.reactiveForm = new FormGroup({
       question1: new FormControl(null),
       question2: new FormControl(null),
@@ -112,6 +113,7 @@ export class UserQuestionnaireComponent implements OnInit {
         alert(error.message);
       }
     );
+    
   }
 
 }
