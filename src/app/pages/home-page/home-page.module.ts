@@ -18,6 +18,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { LoginComponent } from './components/user-login/login/login.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptor/TokenInterceptor';
+import { AppointmentsComponent } from './components/appointments/appointments/appointments.component';
 
 
 
@@ -31,6 +32,7 @@ import { TokenInterceptor } from './interceptor/TokenInterceptor';
     RegisteredUsersDisplayComponent,
     UserQuestionnaireComponent,
     LoginComponent,
+    AppointmentsComponent,
 
     
   ],

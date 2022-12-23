@@ -7,6 +7,7 @@ import { RegisteredUsersDisplayComponent } from './pages/home-page/components/re
 import { ProfileViewComponent } from './pages/user-profile/components/profile-view/profile-view.component';
 import { UserQuestionnaireComponent } from './pages/home-page/components/user-questionnaire/user-questionnaire/user-questionnaire.component';
 import { LoginComponent } from './pages/home-page/components/user-login/login/login.component';
+import { AppointmentsComponent } from './pages/home-page/components/appointments/appointments/appointments.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'userRegister', component: UserRegisterComponent },
   { path: 'myprofile', component: ProfileViewComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'appointments', component: AppointmentsComponent },
   
 ];
 
