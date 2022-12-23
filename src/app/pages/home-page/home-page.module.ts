@@ -19,6 +19,7 @@ import { LoginComponent } from './components/user-login/login/login.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptor/TokenInterceptor';
 import { AppointmentsComponent } from './components/appointments/appointments/appointments.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 
@@ -33,6 +34,7 @@ import { AppointmentsComponent } from './components/appointments/appointments/ap
     UserQuestionnaireComponent,
     LoginComponent,
     AppointmentsComponent,
+    ChangePasswordComponent,
 
     
   ],

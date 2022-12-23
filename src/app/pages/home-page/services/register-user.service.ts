@@ -5,6 +5,7 @@ import { RegistredUserDto } from '../interfaces/dtos/RegistredUserDto';
 import { JwtAuthenticationRequest } from '../interfaces/dtos/JwtAuthenticationRequest';
 import { UserTokenState } from '../interfaces/dtos/UserTokenState';
 import { map } from 'rxjs';
+import { RegistredAdmin } from '../interfaces/RegistredAdmin';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,9 @@ export class RegisterUserService {
 
   search(searchInput: any){
     return this.http.get<RegistredUser[]>(this.url + `/api/registeredusers/searchRegisteredUser/${searchInput}`);
+  }
+  getLoggedUser(){
+    return this.http.get<RegistredUser>(this.url + `/api/registeredusers/logedUser`);
   }
 
   login(login: JwtAuthenticationRequest){
