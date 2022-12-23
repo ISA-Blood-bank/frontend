@@ -16,6 +16,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
 import { LoginComponent } from './components/user-login/login/login.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './interceptor/TokenInterceptor';
 
 
 
@@ -46,6 +48,11 @@ import { LoginComponent } from './components/user-login/login/login.component';
     ReactiveFormsModule,
     MatSortModule
 
-  ]
+  ],
+  /*providers:[
+    {provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true}
+  ]*/
 })
 export class HomePageModule { }
