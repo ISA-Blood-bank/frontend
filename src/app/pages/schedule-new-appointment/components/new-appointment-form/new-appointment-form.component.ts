@@ -11,12 +11,16 @@ import { BloodCenter } from 'src/app/pages/home-page/interfaces/BloodCenter';
 })
 export class NewAppointmentFormComponent implements OnInit {
 
-  constructor(appointmentService: NewappointmentService) { }
-  public bloodcenters: BloodCenter[] = [];
+  constructor(private appointmentService: NewappointmentService) { }
+  public bloodCenters: BloodCenter[] = [];
   ngOnInit(): void {
   }
   getInfo(info: any){
     const time = info.time.split(':');
     info.start.setHours(time[0], time[1], 0);
+    this.appointmentService.findAvaiableBloodCenters(info).subscribe((res)=>{
+      this.bloodCenters = res;
+      console.log(res)
+    }) 
   }
 }

@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: 'userRegister', component: UserRegisterComponent },
   { path: 'myprofile', component: ProfileViewComponent },
   { path: 'login', component: LoginComponent },
-  
   { path: 'createappointment', component: CreateAppointmentFormComponent},
   { path: 'newappointment', component: NewAppointmentFormComponent}
 ];

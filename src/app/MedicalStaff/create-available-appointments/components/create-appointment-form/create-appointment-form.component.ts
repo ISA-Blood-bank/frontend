@@ -3,6 +3,7 @@ import { Appointment } from '../../interfaces/appointment';
 import { AppointmentService } from '../../services/appointment.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -17,15 +18,22 @@ export class CreateAppointmentFormComponent implements OnInit {
   }
   getAppointment(newAppointment: any){
     const vreme = newAppointment.time.split(':');
-    newAppointment.start.setHours(vreme[0], vreme[1], 0);
+    const date1 = new Date(newAppointment.start);
+    date1.setHours(vreme[0], vreme[1], 0);
     let appointment: Appointment = {
       id: -1,
-      start: newAppointment.start,
+      start: date1,
       duration: newAppointment.duration,
-      available: true,
-      medicalStaffId: 1
+      medicalStaffId: 2
     }
     console.log(appointment);
-    this.appointmentService.save(appointment);
+    this.appointmentService.save(appointment).subscribe(
+      (data) => {
+        alert("Success!");
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 }

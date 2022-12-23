@@ -5,6 +5,5 @@ export interface Appointment {
     id: number;
     start: Date;
     duration: number;
-    available: boolean;
     medicalStaffId: number;
 }

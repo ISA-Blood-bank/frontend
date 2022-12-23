@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Appointment } from '../interfaces/appointment';
+import { RetAppointment } from '../interfaces/ret-appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,6 @@ export class AppointmentService {
   url = "http://localhost:8080";
 
   save(newAppointment: any){
-    return this.http.post<Appointment>(this.url + 'api/appointments/create', newAppointment);
+    return this.http.post<Appointment>(this.url + '/api/appointments/add', newAppointment);
   }
 }
