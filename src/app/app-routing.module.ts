@@ -8,6 +8,7 @@ import { ProfileViewComponent } from './pages/user-profile/components/profile-vi
 import { UserQuestionnaireComponent } from './pages/home-page/components/user-questionnaire/user-questionnaire/user-questionnaire.component';
 import { LoginComponent } from './pages/home-page/components/user-login/login/login.component';
 import { AppointmentsComponent } from './pages/home-page/components/appointments/appointments/appointments.component';
+import { ScheduledAppointmentsComponent } from './pages/home-page/components/scheduled-appointments/scheduled-appointments/scheduled-appointments.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'myprofile', component: ProfileViewComponent },
   { path: 'login', component: LoginComponent },
   { path: 'appointments', component: AppointmentsComponent },
+  { path: 'scheduledAppointments', component: ScheduledAppointmentsComponent },
   
 ];
 
