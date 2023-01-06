@@ -5,16 +5,18 @@ import { RegistredUserDto } from '../interfaces/dtos/RegistredUserDto';
 import { JwtAuthenticationRequest } from '../interfaces/dtos/JwtAuthenticationRequest';
 import { UserTokenState } from '../interfaces/dtos/UserTokenState';
 import { map } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterUserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   url = "http://localhost:8080";
   private access_token = null;
+  currentUser!:any;
 
   save(newUser: RegistredUserDto){
     return this.http.post<RegistredUser>(this.url + '/api/registeredusers/add', newUser);
@@ -42,6 +44,11 @@ export class RegisterUserService {
       this.access_token = res.accessToken;
       localStorage.setItem("jwt", res.accessToken)
     }));;
+  }
+  logout() {
+    localStorage.removeItem("jwt");
+    this.access_token = null;
+    this.router.navigate(['/login']);
   }
 
   tokenIsPresent() {
