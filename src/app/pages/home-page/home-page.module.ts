@@ -15,6 +15,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
+import { LoginComponent } from './components/user-login/login/login.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './interceptor/TokenInterceptor';
+import { AppointmentsComponent } from './components/appointments/appointments/appointments.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ScheduledAppointmentsComponent } from './components/scheduled-appointments/scheduled-appointments/scheduled-appointments.component';
+
 
 
 
@@ -27,6 +34,10 @@ import { MatSortModule } from '@angular/material/sort';
     UserRegisterComponent,
     RegisteredUsersDisplayComponent,
     UserQuestionnaireComponent,
+    LoginComponent,
+    AppointmentsComponent,
+    ChangePasswordComponent,
+    ScheduledAppointmentsComponent
 
     
   ],
@@ -44,6 +55,11 @@ import { MatSortModule } from '@angular/material/sort';
     ReactiveFormsModule,
     MatSortModule
 
-  ]
+  ],
+  /*providers:[
+    {provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true}
+  ]*/
 })
 export class HomePageModule { }

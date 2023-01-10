@@ -6,6 +6,11 @@ import { UserRegisterComponent } from './pages/home-page/components/user-registe
 import { RegisteredUsersDisplayComponent } from './pages/home-page/components/registered-users-display/registered-users-display/registered-users-display.component';
 import { ProfileViewComponent } from './pages/user-profile/components/profile-view/profile-view.component';
 import { UserQuestionnaireComponent } from './pages/home-page/components/user-questionnaire/user-questionnaire/user-questionnaire.component';
+import { LoginComponent } from './pages/home-page/components/user-login/login/login.component';
+import { AppointmentsComponent } from './pages/home-page/components/appointments/appointments/appointments.component';
+import { ChangePasswordComponent } from './pages/home-page/components/change-password/change-password.component';
+import { ScheduledAppointmentsComponent } from './pages/home-page/components/scheduled-appointments/scheduled-appointments/scheduled-appointments.component';
+
 
 
 const routes: Routes = [
@@ -16,6 +21,11 @@ const routes: Routes = [
   { path: 'userQuestionnaire', component: UserQuestionnaireComponent },
   { path: 'userRegister', component: UserRegisterComponent },
   { path: 'myprofile', component: ProfileViewComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'appointments', component: AppointmentsComponent },
+  { path: 'changePassword', component: ChangePasswordComponent },
+  { path: 'scheduledAppointments', component: ScheduledAppointmentsComponent }
+  
 ];
 
 @NgModule({
