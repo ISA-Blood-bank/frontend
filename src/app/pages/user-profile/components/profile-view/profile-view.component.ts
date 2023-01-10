@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Address } from 'src/app/pages/home-page/interfaces/Address';
+import { JwtService } from 'src/app/pages/home-page/services/jwt.service';
 import { LoggedUser } from '../../interfaces/logged-user';
 import { UserService } from '../../services/user.service';
 
@@ -13,15 +14,16 @@ import { UserService } from '../../services/user.service';
 export class ProfileViewComponent implements OnInit {
 
   ngOnInit(): void {
-    this.getUser(1);
+    this.getUser();
   }
   public loggedUser: any = {} as any;
   public editUser: any = {} as any;
   public address: any = {} as any;
   public editAddress: any = {} as any;
+  public tokenData: any;
 
   constructor(
-    private userService:UserService,
+    private userService:UserService, private jwtService: JwtService
   ) { }
 
   saveChanges(){
@@ -34,8 +36,9 @@ export class ProfileViewComponent implements OnInit {
     this.saveChanges();
   }
 
-  public getUser(userId: number): void{
-    this.userService.getUser(userId).subscribe(
+  public getUser(): void{
+    this.tokenData = this.jwtService.decodeToken(localStorage['jwt']) as any;
+    this.userService.findByEmail(this.tokenData.sub).subscribe(
       (response: LoggedUser) => {
         this.loggedUser = response;
         this.editUser = response;

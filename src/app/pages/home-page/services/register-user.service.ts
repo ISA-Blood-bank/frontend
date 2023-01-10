@@ -24,6 +24,9 @@ export class RegisterUserService {
   findAll(){
     return this.http.get<RegistredUser[]>(this.url + '/api/registeredusers/all');
   }
+  findByEmail(email: string){
+    return this.http.get<RegistredUser>(this.url + `/api/registeredusers/findByEmail/${email}`);
+  }
 
   search(searchInput: any){
     return this.http.get<RegistredUser[]>(this.url + `/api/registeredusers/searchRegisteredUser/${searchInput}`);

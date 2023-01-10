@@ -14,6 +14,7 @@ import { NewAppointmentFormComponent } from './pages/schedule-new-appointment/co
 const routes: Routes = [
   { path: '', component: BloodCentersDisplayComponent},
   { path: 'centerRegister', component: BloodCenterRegisterFormComponent },
+  { path: 'userProfile', component: ProfileViewComponent },
   { path: 'userRegister', component: UserRegisterComponent },
   { path: 'userView', component: RegisteredUsersDisplayComponent },
   { path: 'userQuestionnaire', component: UserQuestionnaireComponent },
