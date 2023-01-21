@@ -18,7 +18,7 @@ export class RegisterUserService {
   private access_token = null;
 
   save(newUser: RegistredUserDto){
-    return this.http.post<RegistredUser>(this.url + '/api/registeredusers/add', newUser);
+    return this.http.post<RegistredUser>(this.url + '/auth/signup', newUser);
   }
   findAll(){
     return this.http.get<RegistredUser[]>(this.url + '/api/registeredusers/all');
