@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ScheduledAppointment } from '../../../interfaces/ScheduledAppointment';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-scheduled-appointments',
@@ -32,6 +33,13 @@ export class ScheduledAppointmentsComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+
+  formateDate(date: Date){
+    const format = 'dd/MM/yyyy';
+    const locale = 'en-US';
+    const formattedDate = formatDate(date, format, locale);
+    return formattedDate;
   }
 
 }
