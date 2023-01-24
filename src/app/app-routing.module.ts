@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/home-page/components/user-login/login/lo
 import { AppointmentsComponent } from './pages/home-page/components/appointments/appointments/appointments.component';
 import { ChangePasswordComponent } from './pages/home-page/components/change-password/change-password.component';
 import { ScheduledAppointmentsComponent } from './pages/home-page/components/scheduled-appointments/scheduled-appointments/scheduled-appointments.component';
+import { AppointmentReportsComponent } from './pages/home-page/components/appointment-reports/appointment-reports/appointment-reports.component';
 
 
 
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'appointments', component: AppointmentsComponent },
   { path: 'changePassword', component: ChangePasswordComponent },
-  { path: 'scheduledAppointments', component: ScheduledAppointmentsComponent }
+  { path: 'scheduledAppointments', component: ScheduledAppointmentsComponent },
+  { path: 'appointmentReports', component: AppointmentReportsComponent }
   
 ];
 
