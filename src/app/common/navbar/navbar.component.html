@@ -18,12 +18,12 @@
         </a>
         <a mat-button *ngIf="role === 'ROLE_NOTAUTH'" routerLink="/login">Login
         </a>
+        <a mat-button *ngIf="role === 'ROLE_USER'" routerLink="/appointments">Available appointments
+        </a>
+        <a mat-button *ngIf="role === 'ROLE_USER'" routerLink="/scheduledAppointments">My appointments
+        </a>
+        <a mat-button *ngIf="role === 'ROLE_USER'" routerLink="/appointmentReports">My reports
+        </a>
         <a mat-button *ngIf="role != 'ROLE_NOTAUTH'" (click)="logout()">Logout
-        </a>
-        <a mat-button routerLink="/appointments">Available appointments
-        </a>
-        <a mat-button routerLink="/scheduledAppointments">My appointments
-        </a>
-        <a mat-button routerLink="/appointmentReports">My reports
         </a>
 </mat-toolbar>
