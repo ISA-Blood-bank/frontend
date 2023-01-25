@@ -1,0 +1,35 @@
+<form #appointmentInfoForm='ngForm' (ngSubmit)="getInfo(appointmentInfoForm.value)">
+    <div class="rgform">
+      <div class="info">
+        <p class="title"> Create new appointment </p>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" ngModel name="start" #start="ngModel">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Time of appointment</mat-label>
+        <input  matInput ngModel name="time" #time="ngModel" placeholder="Time">
+        <mat-hint>HH:MM</mat-hint>
+      </mat-form-field>
+    <button mat-button>Submit</button>
+    </div>
+</form>
+<div class="appointment-right">
+
+  <mat-card *ngFor="let i of appointments" >
+          <mat-card-header >Blood Center:{{i.bloodCenter.name}}</mat-card-header>
+          <mat-card-content>
+              City: {{i.bloodCenter.address.city}}<br> 
+              Rating: {{i.bloodCenter.averageScore}}
+          </mat-card-content>
+          <mat-card-footer> 
+              <button mat-button><a [routerLink]="['/userQuestionnaire']" [state]="{ id:i.id}">Schedule</a></button>
+          </mat-card-footer>
+  </mat-card>
+
+</div>
