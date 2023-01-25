@@ -21,6 +21,7 @@ import { TokenInterceptor } from './interceptor/TokenInterceptor';
 import { AppointmentsComponent } from './components/appointments/appointments/appointments.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ScheduledAppointmentsComponent } from './components/scheduled-appointments/scheduled-appointments/scheduled-appointments.component';
+import { AppointmentReportsComponent } from './components/appointment-reports/appointment-reports/appointment-reports.component';
 
 
 
@@ -37,7 +38,8 @@ import { ScheduledAppointmentsComponent } from './components/scheduled-appointme
     LoginComponent,
     AppointmentsComponent,
     ChangePasswordComponent,
-    ScheduledAppointmentsComponent
+    ScheduledAppointmentsComponent,
+    AppointmentReportsComponent
 
     
   ],
