@@ -6,22 +6,27 @@ import { JwtAuthenticationRequest } from '../interfaces/dtos/JwtAuthenticationRe
 import { UserTokenState } from '../interfaces/dtos/UserTokenState';
 import { map } from 'rxjs';
 import { RegistredAdmin } from '../interfaces/RegistredAdmin';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterUserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   url = "http://localhost:8080";
   private access_token = null;
+  currentUser!:any;
 
   save(newUser: RegistredUserDto){
     return this.http.post<RegistredUser>(this.url + '/auth/signup', newUser);
   }
   findAll(){
     return this.http.get<RegistredUser[]>(this.url + '/api/registeredusers/all');
+  }
+  findByEmail(email: string){
+    return this.http.get<RegistredUser>(this.url + `/api/registeredusers/findByEmail/${email}`);
   }
 
   search(searchInput: any){
@@ -46,6 +51,11 @@ export class RegisterUserService {
       this.access_token = res.accessToken;
       localStorage.setItem("jwt", res.accessToken)
     }));;
+  }
+  logout() {
+    localStorage.removeItem("jwt");
+    this.access_token = null;
+    this.router.navigate(['/login']);
   }
 
   tokenIsPresent() {

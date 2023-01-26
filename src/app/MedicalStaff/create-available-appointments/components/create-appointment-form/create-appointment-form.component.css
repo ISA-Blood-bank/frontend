@@ -1,10 +1,9 @@
 .rgform{
-    float: center;
-    padding-left: 27% ;
-    padding-top: 2%;
+    float: left;
+    padding-left: 5% ;
+    padding-top: 5%;
     padding-bottom: 5%;
     width: 42%;
-    justify-content: center;
 }
 
 .mat-form-field{
@@ -29,7 +28,7 @@
 }
 
 .mat-button{
-    float:right; 
-    width: 10%;
+    float:right;
+    width: 25%;
     background-color: rgb(172, 170, 170);
 }

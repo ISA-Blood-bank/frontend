@@ -12,11 +12,14 @@ import { ChangePasswordComponent } from './pages/home-page/components/change-pas
 import { ScheduledAppointmentsComponent } from './pages/home-page/components/scheduled-appointments/scheduled-appointments/scheduled-appointments.component';
 import { AppointmentReportsComponent } from './pages/home-page/components/appointment-reports/appointment-reports/appointment-reports.component';
 
+import { CreateAppointmentFormComponent } from './MedicalStaff/create-available-appointments/components/create-appointment-form/create-appointment-form.component';
+import { NewAppointmentFormComponent } from './pages/schedule-new-appointment/components/new-appointment-form/new-appointment-form.component';
 
 
 const routes: Routes = [
   { path: '', component: BloodCentersDisplayComponent},
   { path: 'centerRegister', component: BloodCenterRegisterFormComponent },
+  { path: 'userProfile', component: ProfileViewComponent },
   { path: 'userRegister', component: UserRegisterComponent },
   { path: 'userView', component: RegisteredUsersDisplayComponent },
   { path: 'userQuestionnaire', component: UserQuestionnaireComponent },
@@ -26,8 +29,10 @@ const routes: Routes = [
   { path: 'appointments', component: AppointmentsComponent },
   { path: 'changePassword', component: ChangePasswordComponent },
   { path: 'scheduledAppointments', component: ScheduledAppointmentsComponent },
-  { path: 'appointmentReports', component: AppointmentReportsComponent }
+  { path: 'appointmentReports', component: AppointmentReportsComponent },
   
+  { path: 'createappointment', component: CreateAppointmentFormComponent},
+  { path: 'newappointment', component: NewAppointmentFormComponent}
 ];
 
 @NgModule({

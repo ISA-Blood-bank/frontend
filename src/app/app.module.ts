@@ -12,6 +12,10 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 import { BloodCenterRegisterModule } from './pages/blood-center-register/blood-center-register.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TokenInterceptor } from './pages/home-page/interceptor/TokenInterceptor';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CreateAvailableAppointmentsModule } from './MedicalStaff/create-available-appointments/create-available-appointments.module';
+import { ScheduleNewAppointmentModule } from './pages/schedule-new-appointment/schedule-new-appointment.module';
 
 
 
@@ -34,6 +38,9 @@ import { TokenInterceptor } from './pages/home-page/interceptor/TokenInterceptor
     HttpClientModule,
     MatFormFieldModule,
     UserProfileModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    CreateAvailableAppointmentsModule,
+    ScheduleNewAppointmentModule
   ],
   providers:[
     {provide: HTTP_INTERCEPTORS,

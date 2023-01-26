@@ -18,4 +18,7 @@ export class UserService {
   public updateUserInfo(user: LoggedUser):Observable<LoggedUser>{
     return this.http.put<LoggedUser>(`${this.apiServerUrl}/api/registeredusers/update`, user);
   }
+  findByEmail(email: string){
+    return this.http.get<LoggedUser>(`${this.apiServerUrl}/api/registeredusers/findByEmail/${email}`);
+  }
 }

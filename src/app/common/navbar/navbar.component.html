@@ -1,21 +1,29 @@
 <mat-toolbar>
-    <span><a mat-button class="isabutton" routerLink="" >ISA App
+    <span><a mat-button class="isabutton" routerLink="" >Home page
     </a></span>
     <span class="spacer"></span>
-        <a mat-button routerLink="/userView" >Users
+        <a mat-button *ngIf="role === 'ROLE_MEDSTAFF'" routerLink="/userView" >Users
         </a>
-        <a mat-button routerLink="/centerRegister" >Register new blood center
+        <a mat-button *ngIf="role === 'ROLE_ADMIN'" routerLink="/centerRegister" >Register new blood center
         </a>
-        <a mat-button routerLink="/userRegister" >Register
+        <a mat-button *ngIf="role === 'ROLE_NOTAUTH'" routerLink="/userRegister" >Register
         </a>
-        <a mat-button routerLink="/userQuestionnaire">Questionnaire
+        <a mat-button *ngIf="role === 'ROLE_USER'" routerLink="/userQuestionnaire">Questionnaire
         </a>
-        <a mat-button routerLink="/login">Login
+        <a mat-button *ngIf="role === 'ROLE_USER'" routerLink="/userProfile">My profile
         </a>
-        <a mat-button routerLink="/appointments">Available appointments
+        <a mat-button *ngIf="role === 'ROLE_MEDSTAFF'" routerLink="/createappointment">Create Appointment
         </a>
-        <a mat-button routerLink="/scheduledAppointments">My appointments
+        <a mat-button *ngIf="role === 'ROLE_USER'" routerLink="/newappointment">New Appointment
         </a>
-        <a mat-button routerLink="/appointmentReports">My reports
+        <a mat-button *ngIf="role === 'ROLE_NOTAUTH'" routerLink="/login">Login
+        </a>
+        <a mat-button *ngIf="role === 'ROLE_USER'" routerLink="/appointments">Available appointments
+        </a>
+        <a mat-button *ngIf="role === 'ROLE_USER'" routerLink="/scheduledAppointments">My appointments
+        </a>
+        <a mat-button *ngIf="role === 'ROLE_USER'" routerLink="/appointmentReports">My reports
+        </a>
+        <a mat-button *ngIf="role != 'ROLE_NOTAUTH'" (click)="logout()">Logout
         </a>
 </mat-toolbar>
