@@ -1,0 +1,12 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+.isabutton{
+  height: 100%;
+  font-size: 1.4rem;
+   
+}
+.mat-button{
+  padding: 1rem;
+}
+

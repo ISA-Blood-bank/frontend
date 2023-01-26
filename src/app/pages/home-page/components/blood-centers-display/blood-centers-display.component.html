@@ -1,0 +1,67 @@
+<div class="containerbig">
+  <div class="forms">
+  <div class="searchForm">
+    <form #searchBloodCenterForm="ngForm" (ngSubmit)="onSubmitSearch(searchBloodCenterForm.value)">
+      <mat-form-field>
+        <input matInput name="searchinput" #searchinput="ngModel" ngModel placeholder="Search">
+      </mat-form-field>
+      <button type="submit" mat-raised-button>Search</button>
+    </form>
+  </div>
+  <div class="filterForm">
+    <form  #filterForm="ngForm" (ngSubmit)="onSubmitFilter(filterForm.value)">
+      <mat-form-field>
+        <input matInput #fromRating="ngModel"name="fromRating" ngModel placeholder="from">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #toRating="ngModel"name="toRating" ngModel placeholder="to">
+      </mat-form-field>
+      <button mat-raised-button type="submit">Filter by rating</button>
+    </form>
+  </div>
+  </div>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef (click)="findSorted('name')">Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="street">
+        <th mat-header-cell *matHeaderCellDef (click)="findSorted('address.street')">Street</th>
+        <td mat-cell *matCellDef="let element">{{ element.address.street }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef (click)="findSorted('address.number')">Number</th>
+        <td mat-cell *matCellDef="let element">{{ element.address.number }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef (click)="findSorted('address.city')">City</th>
+        <td mat-cell *matCellDef="let element">{{ element.address.city }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="country">
+          <th mat-header-cell *matHeaderCellDef (click)="findSorted('address.country')">Country</th>
+          <td mat-cell *matCellDef="let element">{{ element.address.country }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef (click)="findSorted('description')">Description</th>
+          <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="averageScore">
+          <th mat-header-cell *matHeaderCellDef (click)="findSorted('averageScore')">Average score</th>
+          <td mat-cell *matCellDef="let element">{{ element.averageScore }}</td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+  
+</div>

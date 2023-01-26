@@ -1,0 +1,94 @@
+<form #userForm='ngForm' (ngSubmit)="registerUser(userForm.value)">
+    <div class="rgform">
+      <div class="info">
+        <p class="title"> Register</p>
+      </div>
+      <mat-form-field appearance="legacy">
+        <mat-label>Name</mat-label>
+        <input  matInput ngModel name="name" #name="ngModel" placeholder="Name">
+        <mat-hint>Enter the name</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Surname</mat-label>
+        <input  matInput ngModel name="surname" #surname="ngModel" placeholder="Surname">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>JMBG</mat-label>
+        <input  matInput ngModel name="jmbg" #jmbg="ngModel" placeholder="xxxxxxxxxxxxx">
+        <mat-hint>Enter 13 digit number</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-select ngModel name="gender" #gender="ngModel">
+            <mat-option [value]='0' >Male</mat-option>
+            <mat-option  [value]='1' >Female</mat-option>
+        </mat-select>
+        <mat-label>Gender</mat-label>
+        <mat-hint></mat-hint>
+    </mat-form-field>
+   
+      <mat-form-field appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input matInput ngModel name="email" #email="ngModel" placeholder="emailaddres@gmail.com">
+        <mat-hint>Enter email</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput ngModel name="password1" #password1="ngModel" placeholder="Enter password">
+        <mat-hint>Enter password</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput ngModel name="password2" #password2="ngModel" placeholder="Enter password again">
+        <mat-hint>Enter password again</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Street</mat-label>
+        <input  matInput ngModel name="street" #street="ngModel" placeholder="Street">
+        <mat-hint>Enter street</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Number</mat-label>
+        <input  matInput ngModel name="number" #number="ngModel" placeholder="Number">
+        <mat-hint>Enter number</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>City</mat-label>
+        <input  matInput ngModel name="city" #city="ngModel" placeholder="City">
+        <mat-hint>Enter city</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Country</mat-label>
+        <input  matInput ngModel name="country" #country="ngModel" placeholder="Country">
+        <mat-hint>Enter country</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Occupation</mat-label>
+        <input  matInput ngModel name="occupation" #occupation="ngModel" placeholder="Occupation">
+        <mat-hint>Enter occupation</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Job or school</mat-label>
+        <input  matInput ngModel name="jobOrSchoolInfo" #jobOrSchoolInfo="ngModel" placeholder="Job or school">
+        <mat-hint>Enter enterprise o school name</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Phone number</mat-label>
+        <input  matInput ngModel name="phone" #phone="ngModel" placeholder="Phone number">
+        <mat-hint>Enter phone number</mat-hint>
+      </mat-form-field>
+      <button mat-button>Subbmit</button>
+    </div>
+</form>

@@ -1,0 +1,97 @@
+.profile-div{
+    width: 85%;
+    padding: 2%;
+    height: 70%;
+    
+    
+    .left{
+        float: left;
+        width: 15%;
+        padding: 2%;
+        height: 100%;
+
+        .profile-pic{
+            width: 100%;
+            align-content: center;
+        }
+        
+        .user-name{
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+            align-content: center;
+            padding-bottom: 20px;
+        }
+
+        .email{
+            width: 100%;
+            display: block;
+            color: rgba(192, 178, 178, 0.939);
+            text-align: center;
+            align-content: center;
+            font-size: 1.2rem;  
+        }
+        
+        
+    }
+    .div-profile-pic{
+        border-width: 2px;
+        border-color: rgba(192, 178, 178, 0.939);
+        border-style: solid;
+        border-radius: 25px;
+
+
+    }
+    
+    .right{
+        float: left;
+        width: 55%;
+        padding: 3%;
+        .heading{
+            font-size: 1.7rem;
+            color: rgb(193, 192, 192);
+            padding-bottom: 25px;
+            display: inline-block;
+        }
+        
+        .p-question{
+            display: block;
+            color: rgb(193, 192, 192);
+            font-size: 1.2rem;
+            padding-bottom: 10px;
+        }
+        .p-answer{
+            color: black;
+            display: block;
+            font-size: 1.4rem;
+        }
+            
+    }
+        
+    th, td{
+        padding: 20px;
+    }
+    table{
+        padding-bottom: 30px;
+    }
+    
+    .mat-divider{
+        height: 500px;
+        float: left;
+    }
+    .mat-raised-button{
+        margin-bottom: 40px;
+        font-size: medium;
+    }
+    input[type=text], mat-select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: medium;
+      }
+
+}
