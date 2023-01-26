@@ -36,10 +36,12 @@ export class ScheduledAppointmentsComponent implements OnInit {
   }
 
   formateDate(date: Date){
-    const format = 'dd/MM/yyyy';
-    const locale = 'en-US';
-    const formattedDate = formatDate(date, format, locale);
-    return formattedDate;
+    var created: string = date.toString();
+    console.log(created);
+    var splited:string [] = created.split(',');
+    var ret = splited[2] + "." + splited[1] + "." + splited[0] + "." + "  " + splited[3] + ":" + splited[4];
+    console.log(ret);
+    return ret;
   }
 
 }

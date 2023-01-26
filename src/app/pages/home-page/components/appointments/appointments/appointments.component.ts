@@ -47,4 +47,13 @@ export class AppointmentsComponent implements OnInit {
     );
   }
 
+  formateDate(date: Date){
+    var created: string = date.toString();
+    console.log(created);
+    var splited:string [] = created.split(',');
+    var ret = splited[2] + "." + splited[1] + "." + splited[0] + "." + "  " + splited[3] + ":" + splited[4];
+    console.log(ret);
+    return ret;
+  }
+
 }
