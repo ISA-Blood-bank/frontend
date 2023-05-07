@@ -45,9 +45,9 @@ export class LoginComponent implements OnInit {
     this.registredUserService.login(newUser).subscribe(
       (data) => {
         alert("Success!");
-        console.log(localStorage['jwt']);
+        //console.log("ovo je sve u tokenu da znas : ", localStorage['jwt']);
         this.tokenData = this.jwtService.decodeToken(localStorage['jwt']) as any;
-        console.log(this.tokenData);
+        //console.log("ovo je sve u dekodovanom tokenu da znas : ", this.tokenData);
         console.log(this.tokenData.role[this.tokenData.role.length - 1].name);
         this.role = this.tokenData.role[this.tokenData.role.length - 1].name;
         this.navigateByRole(this.role);

@@ -6,6 +6,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BloodCentersCardComponent } from './components/blood-centers-card/blood-centers-card.component';
 import { RouterModule } from '@angular/router';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    RouterModule
+    RouterModule,
+    MatButtonToggleModule
   ]
 })
 export class ScheduleNewAppointmentModule { }

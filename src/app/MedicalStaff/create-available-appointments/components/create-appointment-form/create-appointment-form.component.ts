@@ -4,6 +4,10 @@ import { AppointmentService } from '../../services/appointment.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AppointmentDto } from '../../interfaces/appointment-dto';
+import { JwtService } from 'src/app/pages/home-page/services/jwt.service';
+import { UserService } from 'src/app/pages/user-profile/services/user.service';
+import { LoggedUser } from 'src/app/pages/user-profile/interfaces/logged-user';
 
 
 @Component({
@@ -13,8 +17,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class CreateAppointmentFormComponent implements OnInit {
 
-  constructor(private appointmentService : AppointmentService) { }
+  constructor(private appointmentService : AppointmentService, private jwtService: JwtService, private userService:UserService) { }
+  public loggedUser: any = {} as any;
+  public tokenData: any;
   ngOnInit(): void {
+    this.getUser();
   }
   getAppointment(newAppointment: any){
     const vreme = newAppointment.time.split(':');
@@ -24,7 +31,7 @@ export class CreateAppointmentFormComponent implements OnInit {
       id: -1,
       start: date1,
       duration: newAppointment.duration,
-      medicalStaffId: 2
+      medicalStaffId: this.loggedUser.id,
     }
     console.log(appointment);
     this.appointmentService.save(appointment).subscribe(
@@ -35,5 +42,14 @@ export class CreateAppointmentFormComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+  public getUser(): void{
+    this.tokenData = this.jwtService.decodeToken(localStorage['jwt']) as any;
+    this.userService.findByEmail(this.tokenData.sub).subscribe(
+      (response: LoggedUser) => {
+        this.loggedUser = response;
+        console.log(this.loggedUser);
+      }
+    )
   }
 }
