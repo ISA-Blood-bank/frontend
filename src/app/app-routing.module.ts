@@ -14,6 +14,7 @@ import { AppointmentReportsComponent } from './pages/home-page/components/appoin
 
 import { CreateAppointmentFormComponent } from './MedicalStaff/create-available-appointments/components/create-appointment-form/create-appointment-form.component';
 import { NewAppointmentFormComponent } from './pages/schedule-new-appointment/components/new-appointment-form/new-appointment-form.component';
+import { BloodcenterStatsComponent } from './MedicalStaff/business-analytics/components/bloodcenter-stats/bloodcenter-stats.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'appointmentReports', component: AppointmentReportsComponent },
   
   { path: 'createappointment', component: CreateAppointmentFormComponent},
-  { path: 'newappointment', component: NewAppointmentFormComponent}
+  { path: 'newappointment', component: NewAppointmentFormComponent},
+  { path: 'stats', component: BloodcenterStatsComponent},
 ];
 
 @NgModule({

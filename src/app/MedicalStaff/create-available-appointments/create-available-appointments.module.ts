@@ -10,7 +10,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
-    CreateAppointmentFormComponent
+    CreateAppointmentFormComponent,
   ],
   imports: [
     CommonModule,

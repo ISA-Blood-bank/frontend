@@ -48,7 +48,6 @@ export class CreateAppointmentFormComponent implements OnInit {
     this.userService.findByEmail(this.tokenData.sub).subscribe(
       (response: LoggedUser) => {
         this.loggedUser = response;
-        console.log(this.loggedUser);
       }
     )
   }
