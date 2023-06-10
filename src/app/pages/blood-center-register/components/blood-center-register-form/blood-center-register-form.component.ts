@@ -8,6 +8,7 @@ import { BloodCenter } from 'src/app/pages/home-page/interfaces/BloodCenter';
 import { BloodBankService } from 'src/app/pages/home-page/services/blood-bank.service';
 import { MedicalStaff } from '../../interface/MedicalStaff';
 import {  RegistrationMedicalStaffService } from '../../service/registration-medical-staff-service.service';
+import { MedicalStaffDto } from '../../interface/MedicalStaffDto';
 
 
 
@@ -49,13 +50,15 @@ export class BloodCenterRegisterFormComponent implements OnInit {
     }
 
 
-    let newMedicalStaff: MedicalStaff ={
+    let newMedicalStaff: MedicalStaffDto ={
       id: -1,
       name: admin.name,
       surname: admin.surname,
       jmbg: admin.jmbg,
       gender: admin.gender,
       email: admin.email,
+      password1 : "",
+      password2 : "",
       address: address1,
       bloodCenter :bloodCenter1
     } 
