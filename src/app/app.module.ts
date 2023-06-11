@@ -17,6 +17,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CreateAvailableAppointmentsModule } from './MedicalStaff/create-available-appointments/create-available-appointments.module';
 import { ScheduleNewAppointmentModule } from './pages/schedule-new-appointment/schedule-new-appointment.module';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { SystemAdministratorRegistrationComponent } from './pages/system-administrator-registration/components/system-administrator-registration/system-administrator-registration.component';
+import { SystemAdministratorRegistrationModule } from './pages/system-administrator-registration/system-administrator-registration.module';
+
 
 
 
@@ -41,7 +44,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     UserProfileModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     CreateAvailableAppointmentsModule,
-    ScheduleNewAppointmentModule
+    ScheduleNewAppointmentModule,
+    SystemAdministratorRegistrationModule
   ],
   providers:[
     {provide: HTTP_INTERCEPTORS,
