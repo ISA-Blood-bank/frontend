@@ -4,6 +4,7 @@ import { Address } from 'src/app/pages/home-page/interfaces/Address';
 import { JwtService } from 'src/app/pages/home-page/services/jwt.service';
 import { LoggedUser } from '../../interfaces/logged-user';
 import { UserService } from '../../services/user.service';
+import { LoggedUserDto } from '../../interfaces/logged-user-dto';
 
 
 @Component({
@@ -39,8 +40,10 @@ export class ProfileViewComponent implements OnInit {
   public getUser(): void{
     this.tokenData = this.jwtService.decodeToken(localStorage['jwt']) as any;
     this.userService.findByEmail(this.tokenData.sub).subscribe(
-      (response: LoggedUser) => {
+      (response: LoggedUserDto) => {
+        
         this.loggedUser = response;
+        console.log("Da vidim je l preneo i verziju: ", this.loggedUser)
         this.editUser = response;
         this.address = response.address;
         this.editAddress = response.address;
@@ -59,8 +62,8 @@ export class ProfileViewComponent implements OnInit {
     }
     user.address = addressUser;
     this.userService.updateUserInfo(user).subscribe(
-      (response: LoggedUser) => {
-        this.loggedUser = response;
+      (response: LoggedUserDto) => {
+        this.getUser();
       }
     )
   }
