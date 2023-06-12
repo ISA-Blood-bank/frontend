@@ -14,6 +14,6 @@ export class RegisterSysAdminService {
   url = "http://localhost:8080";
   
   save(newUser: RegistredUserDto){
-    return this.http.post<RegistredUser>(this.url + '/auth/signup', newUser);
+    return this.http.post<RegistredUser>(this.url + '/auth/adminSignup', newUser);
   }
 }
