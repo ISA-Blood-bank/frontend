@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { RetAppointment } from 'src/app/MedicalStaff/create-available-appointments/interfaces/ret-appointment';
 import { BloodCenter } from '../../home-page/interfaces/BloodCenter';
 import { RecommendDto } from '../interfaces/recommend-dto';
+import { Appointment } from 'src/app/MedicalStaff/create-available-appointments/interfaces/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,8 @@ export class NewappointmentService {
   ): Observable<RetAppointment> {
     return this.http.put<RetAppointment>(`${this.url}`, appointmentId);
   }
+
+  scheduleRecommendedAppointment(dto: any): Observable<string> {
+    return this.http.post<string>(`${this.url}/api/appointments/schedule-recommended-appointment`, dto);
+}
 }

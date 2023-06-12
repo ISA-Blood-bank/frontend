@@ -16,6 +16,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CreateAvailableAppointmentsModule } from './MedicalStaff/create-available-appointments/create-available-appointments.module';
 import { ScheduleNewAppointmentModule } from './pages/schedule-new-appointment/schedule-new-appointment.module';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { BusinessAnalyticsModule } from './MedicalStaff/business-analytics/business-analytics.module';
 
 
 
@@ -40,7 +42,8 @@ import { ScheduleNewAppointmentModule } from './pages/schedule-new-appointment/s
     UserProfileModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     CreateAvailableAppointmentsModule,
-    ScheduleNewAppointmentModule
+    ScheduleNewAppointmentModule,
+    BusinessAnalyticsModule
   ],
   providers:[
     {provide: HTTP_INTERCEPTORS,
