@@ -5,21 +5,29 @@
   <div class="datepicker">
     <mat-form-field class="datepickerform">
       <mat-label >Month and Year</mat-label>
-      <input matInput [matDatepicker]="dp">
+      <input matInput [matDatepicker]="datePicker">
       <mat-hint>MM/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
-      <mat-datepicker #dp
+      <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker
                 startView="multi-year"
-                (monthSelected)="setMonthAndYear($event, dp)"
+                (monthSelected)="setMonthAndYear($event, datePicker)"
                 panelClass="example-month-picker">
       </mat-datepicker>
     </mat-form-field>
   </div>
   <div class="month">
-  <h2> Month: {{ viewDate | date: 'MMMM' }}</h2>
+    <h2>
+      <button mat-icon-button (click)="previous()" class="arrow">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      Month: {{ date | date: 'MMMM' }}
+      <button mat-icon-button (click)="next()" class="arrow">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </h2>
   </div>
   <div class="buttons">
-        <mat-button-toggle-group [(ngModel)]="view" (change)="onToggleChange($event)">
+        <mat-button-toggle-group [(ngModel)]="view" (change)="change($event)">
           <mat-button-toggle value="week">Week view</mat-button-toggle>
           <mat-button-toggle value="month">Month view</mat-button-toggle>
         </mat-button-toggle-group>
@@ -27,9 +35,8 @@
   </div>
   <div class="calendar">
         <div *ngIf="view === 'month'">
-          
           <mwl-calendar-month-view
-           [viewDate]="viewDate"
+           [viewDate]="date"
            [events]="events" 
             class="calendar"></mwl-calendar-month-view>
         </div>
@@ -37,7 +44,7 @@
         <div *ngIf="view === 'week'">
           
           <mwl-calendar-week-view  class="calendar"
-           [viewDate]="viewDate"
+           [viewDate]="date"
            [hourSegments]="4" 
            [events]="events"
            [dayStartHour]="8"
