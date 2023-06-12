@@ -1,0 +1,48 @@
+<div class="page">
+  <p class="title"> Work calendar</p>
+  <div class="uppercomponents">
+   
+  <div class="datepicker">
+    <mat-form-field class="datepickerform">
+      <mat-label >Month and Year</mat-label>
+      <input matInput [matDatepicker]="dp">
+      <mat-hint>MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp
+                startView="multi-year"
+                (monthSelected)="setMonthAndYear($event, dp)"
+                panelClass="example-month-picker">
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="month">
+  <h2> Month: {{ viewDate | date: 'MMMM' }}</h2>
+  </div>
+  <div class="buttons">
+        <mat-button-toggle-group [(ngModel)]="view" (change)="onToggleChange($event)">
+          <mat-button-toggle value="week">Week view</mat-button-toggle>
+          <mat-button-toggle value="month">Month view</mat-button-toggle>
+        </mat-button-toggle-group>
+  </div>
+  </div>
+  <div class="calendar">
+        <div *ngIf="view === 'month'">
+          
+          <mwl-calendar-month-view
+           [viewDate]="viewDate"
+           [events]="events" 
+            class="calendar"></mwl-calendar-month-view>
+        </div>
+        
+        <div *ngIf="view === 'week'">
+          
+          <mwl-calendar-week-view  class="calendar"
+           [viewDate]="viewDate"
+           [hourSegments]="4" 
+           [events]="events"
+           [dayStartHour]="8"
+           [dayEndHour]="21" ></mwl-calendar-week-view>
+        </div>
+  </div>
+</div>
+  

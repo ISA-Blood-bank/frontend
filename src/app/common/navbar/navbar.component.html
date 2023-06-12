@@ -26,6 +26,8 @@
         </a>
         <a mat-button *ngIf="role === 'ROLE_ADMIN'" routerLink="/sysAdminRegister">New Admin 
         </a>
+        <a mat-button *ngIf="role === 'ROLE_MEDSTAFF'" routerLink="/calendar">Work calendar 
+        </a>
         <a mat-button *ngIf="role != 'ROLE_NOTAUTH'" (click)="logout()">Logout
         </a>
 </mat-toolbar>

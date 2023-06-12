@@ -1,0 +1,44 @@
+
+.title{
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    display: inline-block;
+    margin-left: 47.8%;
+    margin-top: 2%;
+}
+.calendar{
+   margin-left: 3%;
+   margin-right: 3%;
+}
+.example-month-picker .mat-calendar-period-button {
+    pointer-events: none;
+  }
+  
+  .example-month-picker .mat-calendar-arrow {
+    display: none;
+  }
+.month{
+    margin-top: 2.5%;
+    
+}
+.uppercomponents{
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+    height: 3%;
+    display: flex;
+    justify-content: space-between;
+   
+}
+.datepicker{
+    width: 14%;
+
+}
+.datepickerform{
+    width: 100%;
+}
+.buttons{
+    margin-top: 1%;
+    margin-right: 0.2%;
+}

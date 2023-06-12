@@ -22,6 +22,12 @@ import { AppointmentsComponent } from './components/appointments/appointments/ap
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ScheduledAppointmentsComponent } from './components/scheduled-appointments/scheduled-appointments/scheduled-appointments.component';
 import { AppointmentReportsComponent } from './components/appointment-reports/appointment-reports/appointment-reports.component';
+import { AdminCalendarComponent } from './components/admin-calendar/admin-calendar.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDatepicker, MatDatepickerModule, MatYearView } from '@angular/material/datepicker';
+
 
 
 
@@ -39,7 +45,8 @@ import { AppointmentReportsComponent } from './components/appointment-reports/ap
     AppointmentsComponent,
     ChangePasswordComponent,
     ScheduledAppointmentsComponent,
-    AppointmentReportsComponent
+    AppointmentReportsComponent,
+    AdminCalendarComponent
 
     
   ],
@@ -47,15 +54,17 @@ import { AppointmentReportsComponent } from './components/appointment-reports/ap
     CommonModule,
     MatTableModule, 
     FormsModule,
-
+    MatButtonToggleModule,
     MaterialModule,
-
+   
     MatTableModule,
     MatSelectModule,
     MatButtonModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatSortModule
+    MatSortModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    MatDatepickerModule
 
   ],
   /*providers:[

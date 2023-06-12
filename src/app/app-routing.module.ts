@@ -15,6 +15,7 @@ import { AppointmentReportsComponent } from './pages/home-page/components/appoin
 import { CreateAppointmentFormComponent } from './MedicalStaff/create-available-appointments/components/create-appointment-form/create-appointment-form.component';
 import { NewAppointmentFormComponent } from './pages/schedule-new-appointment/components/new-appointment-form/new-appointment-form.component';
 import { SystemAdministratorRegistrationComponent } from './pages/system-administrator-registration/components/system-administrator-registration/system-administrator-registration.component';
+import { AdminCalendarComponent } from './pages/home-page/components/admin-calendar/admin-calendar.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'scheduledAppointments', component: ScheduledAppointmentsComponent },
   { path: 'appointmentReports', component: AppointmentReportsComponent },
   {path: 'sysAdminRegister', component: SystemAdministratorRegistrationComponent},
+  {path: 'calendar', component: AdminCalendarComponent},
   
   { path: 'createappointment', component: CreateAppointmentFormComponent},
   { path: 'newappointment', component: NewAppointmentFormComponent}
