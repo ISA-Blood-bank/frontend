@@ -100,7 +100,8 @@ export class UserQuestionnaireComponent implements OnInit {
       points: 0,
       category: 0,
       penalties:0,
-      phone: ""
+      phone: "",
+      isPasswordChanged : true
     }
     }
     console.log(questionnaire);

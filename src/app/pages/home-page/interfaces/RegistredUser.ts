@@ -16,4 +16,6 @@ export interface RegistredUser{
     category: number;
     penalties: number;
     phone: string;
+    isPasswordChanged : boolean;
+
 }

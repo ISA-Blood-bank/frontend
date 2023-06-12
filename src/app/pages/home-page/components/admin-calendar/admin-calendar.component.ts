@@ -7,6 +7,9 @@ import { CalendarFreeAppointments } from '../../interfaces/dtos/CalendarFreeAppo
 import * as moment from 'moment';
 import 'moment-timezone';
 import { subWeeks, subMonths, addWeeks, addMonths } from 'date-fns';
+import { RegisterUserService } from '../../services/register-user.service';
+import { JwtService } from '../../services/jwt.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -16,11 +19,12 @@ import { subWeeks, subMonths, addWeeks, addMonths } from 'date-fns';
 })
 export class AdminCalendarComponent implements OnInit {
 
-  constructor(private calendarService : CalendarService) { }
+  constructor(private calendarService : CalendarService, private jwtService :  JwtService) { }
   view: string = 'month';
   freeAppointments : CalendarFreeAppointments[]=[];
   date: Date = new Date();
   events: CalendarEvent[] = [];
+  bloodCenterId : any;
 
   ngOnInit(): void {
     this.getFreeAppointments();
@@ -52,19 +56,44 @@ export class AdminCalendarComponent implements OnInit {
     datepicker.close();
   }
 
-  getFreeAppointments(){
-    this.calendarService.freeAppointments(1).subscribe(
-      (data) => {
-        this.freeAppointments=data;
-        console.log("ovo su free appointments", this.freeAppointments);
-        this.createEventsForCalendar();
-        alert("Success!");
-        
+  getUserId(): any{
+    let user :any;
+    user= this.jwtService.decodeToken(this.jwtService.getTokenFromStorage());
+    return user.userId;
+  }
+  getBloodCenterId(id : number){
+   
+    this.calendarService.getBloodCenterIdByUserId(id).subscribe(
+      (result) => {
+        this.bloodCenterId = result;
+        console.log("Dobijeni broj:", result);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
+
+     
     );
+    
+  }
+
+  getFreeAppointments(){
+    let userid = this.getUserId();
+    this.getBloodCenterId(userid);
+    setTimeout(() => {
+      console.log("ovo je bloodcenterid", this.bloodCenterId);
+      this.calendarService.freeAppointments(this.bloodCenterId).subscribe(
+        (data) => {
+          this.freeAppointments = data;
+          console.log("ovo su free appointments", this.freeAppointments);
+          this.createEventsForCalendar();
+          alert("Success!");
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+    }, 1000);
 
   }
  

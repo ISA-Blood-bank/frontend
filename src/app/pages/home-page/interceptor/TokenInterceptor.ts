@@ -11,9 +11,12 @@ export class TokenInterceptor implements HttpInterceptor {
     if (this.auth.tokenIsPresent()) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${this.auth.getToken()}` 
+          Authorization: `Bearer ${this.auth.getToken()}`
+        
         }
+      
       });
+      console.log(this.auth.getToken());
     }
     return next.handle(request);
   }

@@ -51,7 +51,7 @@ submit(user: any){
 
   this.registerSysAdminService.save(newUser).subscribe(
     (data) => {
-      alert("Success!");
+      alert("You have successfully added a new administrator with the default password 123!");
     },
     (error: HttpErrorResponse) => {
       alert(error.message);

@@ -4,9 +4,10 @@ import { Injectable } from '@angular/core';
 import { RegistredUserDto } from '../interfaces/dtos/RegistredUserDto';
 import { JwtAuthenticationRequest } from '../interfaces/dtos/JwtAuthenticationRequest';
 import { UserTokenState } from '../interfaces/dtos/UserTokenState';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { RegistredAdmin } from '../interfaces/RegistredAdmin';
 import { Router } from '@angular/router';
+import { PasswordDto } from '../interfaces/dtos/PasswordDto';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,11 @@ export class RegisterUserService {
   findByEmail(email: string){
     return this.http.get<RegistredUser>(this.url + `/api/registeredusers/findByEmail/${email}`);
   }
-
+  changePassword(dto: PasswordDto):Observable<RegistredUser>{
+    console.log("last dto", dto);         
+    return this.http.put<RegistredUser>(this.url + `/api/registeredusers/changePassword`, dto);
+  }
+  
   search(searchInput: any){
     return this.http.get<RegistredUser[]>(this.url + `/api/registeredusers/searchRegisteredUser/${searchInput}`);
   }
@@ -36,6 +41,7 @@ export class RegisterUserService {
     return this.http.get<RegistredUser>(this.url + `/api/registeredusers/logedUser`);
   }
 
+  
   login(login: JwtAuthenticationRequest){
 
     const loginHeaders = new HttpHeaders({

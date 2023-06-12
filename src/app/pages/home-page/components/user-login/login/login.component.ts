@@ -30,9 +30,17 @@ export class LoginComponent implements OnInit {
     } else if (token === 'ROLE_USER') {
       this.router.navigate(['']);
     } else if (token === 'ROLE_ADMIN') {
-      this.router.navigate(['centerRegister']);
+      if(this.tokenData.passwordChanged || this.tokenData.passwordChanged==null)
+      {
+        this.router.navigate(['centerRegister']);
+      }
+      else{
+      this.router.navigate(['changePassword']);}
+      
   }
   }
+
+ 
   loginUser(user: any){
 
     let newUser: JwtAuthenticationRequest ={
@@ -40,7 +48,6 @@ export class LoginComponent implements OnInit {
       password: user.password1
     } 
 
-    
 
     this.registredUserService.login(newUser).subscribe(
       (data) => {
@@ -50,6 +57,7 @@ export class LoginComponent implements OnInit {
         //console.log("ovo je sve u dekodovanom tokenu da znas : ", this.tokenData);
         console.log(this.tokenData.role[this.tokenData.role.length - 1].name);
         this.role = this.tokenData.role[this.tokenData.role.length - 1].name;
+
         this.navigateByRole(this.role);
       },
       (error: HttpErrorResponse) => {
@@ -57,6 +65,6 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  
 
+ 
 }
