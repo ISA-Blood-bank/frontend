@@ -14,6 +14,9 @@ import { AppointmentReportsComponent } from './pages/home-page/components/appoin
 
 import { CreateAppointmentFormComponent } from './MedicalStaff/create-available-appointments/components/create-appointment-form/create-appointment-form.component';
 import { NewAppointmentFormComponent } from './pages/schedule-new-appointment/components/new-appointment-form/new-appointment-form.component';
+import { AllSCheduledDisplayComponent } from './pages/allScheduled/components/all-scheduled-display/all-scheduled-display.component';
+import { ScheduledInfoComponent } from './pages/allScheduled/components/scheduled-info/scheduled-info.component';
+import { StartedAppointmentComponent } from './pages/allScheduled/components/started-appointment/started-appointment.component';
 
 
 const routes: Routes = [
@@ -32,7 +35,10 @@ const routes: Routes = [
   { path: 'appointmentReports', component: AppointmentReportsComponent },
   
   { path: 'createappointment', component: CreateAppointmentFormComponent},
-  { path: 'newappointment', component: NewAppointmentFormComponent}
+  { path: 'newappointment', component: NewAppointmentFormComponent},
+  { path: 'allScheduled', component: AllSCheduledDisplayComponent},
+  { path: 'scheduledInfo/:id', component:ScheduledInfoComponent},
+  { path: 'appointmentStart/:id/:qId/:schId', component: StartedAppointmentComponent}
 ];
 
 @NgModule({

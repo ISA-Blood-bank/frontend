@@ -16,13 +16,22 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CreateAvailableAppointmentsModule } from './MedicalStaff/create-available-appointments/create-available-appointments.module';
 import { ScheduleNewAppointmentModule } from './pages/schedule-new-appointment/schedule-new-appointment.module';
-
+import { AllSCheduledDisplayComponent } from './pages/allScheduled/components/all-scheduled-display/all-scheduled-display.component';
+import { ScheduledInfoComponent } from './pages/allScheduled/components/scheduled-info/scheduled-info.component';
+import { ObserversModule } from '@angular/cdk/observers';
+import { StartedAppointmentComponent } from './pages/allScheduled/components/started-appointment/started-appointment.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioGroup, MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    AllSCheduledDisplayComponent,
+    ScheduledInfoComponent,
+    StartedAppointmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,12 @@ import { ScheduleNewAppointmentModule } from './pages/schedule-new-appointment/s
     UserProfileModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     CreateAvailableAppointmentsModule,
-    ScheduleNewAppointmentModule
+    ScheduleNewAppointmentModule,
+    ObserversModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatInputModule
   ],
   providers:[
     {provide: HTTP_INTERCEPTORS,

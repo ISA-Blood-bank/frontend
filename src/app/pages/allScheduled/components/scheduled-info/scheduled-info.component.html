@@ -1,0 +1,35 @@
+<div class = 'profile-div'>
+    <div class="left">
+        <mat-label>Full name:</mat-label>
+        <mat-label class="user-name">{{scheduled.name}} {{scheduled.surname}}</mat-label>
+        <mat-label>Email:</mat-label>
+        <mat-label class="user-name">{{scheduled.email}}</mat-label>
+        <mat-label>Start:</mat-label>
+        <mat-label class="user-name">{{formatDate(scheduled.start)}}</mat-label>
+        <mat-label>Duration:</mat-label>
+        <mat-label class="user-name">{{scheduled.duration}}</mat-label>
+
+        <div [hidden]="!extractedTooth">
+            <mat-label class="has-symptoms">This user has extracted a tooth in past 7 days!</mat-label>
+        </div>       
+        <div [hidden]="!hasAllergies">
+            <mat-label class="has-symptoms">This user has allergies or has acne!</mat-label>
+        </div>
+        <div [hidden]="!gotTattooed">
+            <mat-label class="has-symptoms">This user got taottooed in past 6 months!</mat-label>
+        </div>
+        <div [hidden]="!hasCold">
+            <mat-label class="has-symptoms">This user has cold!</mat-label>
+        </div>
+        <div [hidden]="!hasMensturation">
+            <mat-label class="has-symptoms">This user has menstruation or is pregnant!</mat-label>
+        </div>        
+        <div [hidden]="!takesMedication">
+            <mat-label class="has-symptoms">This user takes medication!</mat-label>
+        </div>
+        
+        <button >User has not come</button>
+        <button [disabled]="hasSymptoms" (click)="startAppointment()">Start appointment</button>
+    </div>
+    
+</div>

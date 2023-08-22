@@ -1,0 +1,101 @@
+<p>started-appointment works!</p>
+<div>
+    <form #additionalInfoForm="ngForm" (ngSubmit)="onSubmit()">
+        <div>
+            <mat-form-field>
+                <mat-label>Blood type:</mat-label>
+                <mat-select [(ngModel)]="selectedValue" name="type" [ngModelOptions]="{standalone: true}">
+                   <mat-option *ngFor="let t of types" [value]="t.value">{{t.view}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div>
+                <mat-label>Cooper-sulfate</mat-label>
+                <br />
+                <mat-radio-group [(ngModel)]="copperSulfate" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <br />
+            <div>
+                <mat-label>Normal level</mat-label>
+                <br />
+                <mat-radio-group [(ngModel)]="normalLevel" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <br />
+            <div>
+                <mat-label>High level</mat-label>
+                <br />
+                <mat-radio-group [(ngModel)]="highLevel" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <mat-form-field>
+                <mat-label>Hemoglobinometar:</mat-label>
+                <input matInput [(ngModel)]="hemoglobinometar" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Value:</mat-label>
+                <input matInput [(ngModel)]="value" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <div>
+                <mat-label>Lungs:</mat-label>
+                <br />
+                <mat-radio-group [(ngModel)]="lungs" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <br />
+            <div>
+                <mat-label>heart</mat-label>
+                <br />
+                <mat-radio-group [(ngModel)]="heart" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <mat-form-field>
+                <mat-label>TA:</mat-label>
+                <input matInput [(ngModel)]="TA" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>TT:</mat-label>
+                <input matInput [(ngModel)]="TT" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>TV:</mat-label>
+                <input matInput [(ngModel)]="TV" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Bag type:</mat-label>
+                <input matInput [(ngModel)]="bagType" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Reason for rejection:</mat-label>
+                <input matInput [(ngModel)]="reasonForRejection" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Reason for abort:</mat-label>
+                <input matInput [(ngModel)]="reasonForAbort" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <br />
+            <div>
+                <mat-label>Accepted</mat-label>
+                <br />
+                <mat-radio-group [(ngModel)]="accepted" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                    <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <button mat-button> Submit</button>
+        </div>
+    </form>
+</div>
+
+
