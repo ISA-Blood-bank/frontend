@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ScheduledAppointmentServicesService } from '../../services/scheduled-appointment-services.service';
 import { ScheduledDisplay } from '../../interfaces/dtos/scheduled-display';
 import { ActivatedRoute, Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-scheduled-info',
@@ -32,21 +33,34 @@ export class ScheduledInfoComponent implements OnInit {
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'))
     console.log(this.id)
-    this.getById()
-    this.getExtracted()
-    this.getAllergies()
-    this.getTattooed()
-    this.getCold()
-    this.getMensruation()
-    this.getMedication()
-    this.getQuestionnaireId()
+    this.nested()
+    // this.getById()
+    
+    // setTimeout(()=> {
+    //   console.log("First")
+    // }, 5000)
+
+    // this.getQuestionnaireId()
+    // setTimeout(()=> {
+    //   console.log("Second")
+    // }, 5000)
+
+    // this.getExtracted()
+    // this.getAllergies()
+    // this.getTattooed()
+    // this.getCold()
+    // this.getMensruation()
+    // this.getMedication()
     this.disable()
     console.log(this.questionaireId)
   }
 
   getById(){
     this.scheduledAppointmentService.getById(this.id).subscribe(
-      data => {this.scheduled = data}
+      data => {
+        console.log(data)
+        this.scheduled = data
+      }
     )
   }
 
@@ -114,8 +128,10 @@ export class ScheduledInfoComponent implements OnInit {
   }
 
   getQuestionnaireId(){
-    this.scheduledAppointmentService.getQuestionnaireId(this.id).subscribe(
+    this.scheduledAppointmentService.getQuestionnaireId(this.scheduled.userId).subscribe(
       data => {
+        console.log('Questionaire data:')
+        console.log(data)
         this.questionaireId = data
       }
     )
@@ -123,6 +139,63 @@ export class ScheduledInfoComponent implements OnInit {
 
   startAppointment(){
     this.router.navigateByUrl('/appointmentStart/' + this.id + '/' + this.questionaireId + '/' + this.scheduled.id)
+  }
+
+
+  // NE DIRAJ OVO!!!!!! POKVARICESSSSSSS!!!!!!
+  nested(){
+    this.scheduledAppointmentService.getById(this.id).subscribe(scheduledData => {
+      console.log(scheduledData)
+      this.scheduled = scheduledData
+      //get questionaire id
+      this.scheduledAppointmentService.getQuestionnaireId(this.scheduled.userId).subscribe( quesId => {
+        console.log("qest id:")
+        console.log(quesId)
+        this.questionaireId = quesId
+
+        //get extracted tooth
+        this.scheduledAppointmentService.userHasExtractedTooth(this.scheduled.userId).subscribe( extr => {
+          console.log('extr: ')
+          console.log(extr)
+          this.extractedTooth = extr
+
+          //allergies
+          this.scheduledAppointmentService.userHasAllergies(this.scheduled.userId).subscribe(all => {
+            console.log('all: ')
+            console.log(all)
+            this.hasAllergies = all
+
+            //tattoo
+            this.scheduledAppointmentService.userHasgotTattooed(this.scheduled.userId).subscribe( tatt => {
+              console.log('tatt: ')
+              console.log(tatt)
+              this.gotTattooed = tatt
+
+              //cold
+              this.scheduledAppointmentService.userHasCold(this.scheduled.userId).subscribe( cold => {
+                console.log('cold')
+                console.log(cold)
+                this.hasCold = cold
+
+                //menstruation
+                this.scheduledAppointmentService.userHasMenstruation(this.scheduled.userId).subscribe(mens => {
+                  console.log('mens: ')
+                  console.log(mens)
+                  this.hasMensturation = mens
+
+                  //medication
+                  this.scheduledAppointmentService.userTakesMedication(this.scheduled.userId).subscribe(meds => {
+                    console.log('meds')
+                    console.log(meds)
+                    this.takesMedication = meds
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
+    });
   }
 
 }
