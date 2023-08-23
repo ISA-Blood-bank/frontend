@@ -17,6 +17,7 @@ import { NewAppointmentFormComponent } from './pages/schedule-new-appointment/co
 import { AllSCheduledDisplayComponent } from './pages/allScheduled/components/all-scheduled-display/all-scheduled-display.component';
 import { ScheduledInfoComponent } from './pages/allScheduled/components/scheduled-info/scheduled-info.component';
 import { StartedAppointmentComponent } from './pages/allScheduled/components/started-appointment/started-appointment.component';
+import { BloodCenterDisplayComponent } from './pages/grades/components/blood-center-display/blood-center-display.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'newappointment', component: NewAppointmentFormComponent},
   { path: 'allScheduled', component: AllSCheduledDisplayComponent},
   { path: 'scheduledInfo/:id', component:ScheduledInfoComponent},
-  { path: 'appointmentStart/:id/:qId/:schId', component: StartedAppointmentComponent}
+  { path: 'appointmentStart/:id/:qId/:schId', component: StartedAppointmentComponent},
+  { path: 'bloodCenterInfo/:id', component: BloodCenterDisplayComponent}
 ];
 
 @NgModule({

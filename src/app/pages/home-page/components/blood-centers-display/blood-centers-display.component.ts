@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { BloodCenter } from '../../interfaces/BloodCenter';
 import { BloodBankService } from '../../services/blood-bank.service';
 import {FormControl, FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
 
 const ELEMENT_DATA: BloodCenter[]=[
   {id: 1, 
@@ -51,7 +52,10 @@ export class BloodCentersDisplayComponent implements OnInit {
   
   displayedColumns: string[] = ['name', 'street', 'number', 'city', 'country', 'description', 'averageScore'];
 
-  constructor(private bloodBankService: BloodBankService, private _liveAnnouncer: LiveAnnouncer) { }
+  constructor(
+    private bloodBankService: BloodBankService,
+    private _liveAnnouncer: LiveAnnouncer,
+    private router: Router) { }
 
   ngOnInit(): void {
   
@@ -103,6 +107,12 @@ export class BloodCentersDisplayComponent implements OnInit {
   this.bloodBankService.findAllSorted(0, 10, column, this.order).subscribe((data) => {
     this.dataSource.data = data;
   });
+}
+
+getRow(row){
+  let id  = row.id
+  console.log(id)
+  this.router.navigateByUrl('/bloodCenterInfo/'+id)
 }
 
 

@@ -1,0 +1,31 @@
+<p>blood-center-display works!</p>
+<div class="profile-div">
+    <div class="left">
+        <mat-label>Blood center name:</mat-label>
+        <mat-label class="user-name">{{bloodCenter.name}}</mat-label>
+        <mat-label>Address:</mat-label>
+        <mat-label class="user-name">{{bloodCenter.address.street}} {{bloodCenter.address.number}}</mat-label>
+        <mat-label class="user-name">{{bloodCenter.address.city}} {{bloodCenter.address.country}}</mat-label>
+        <mat-label>Description:</mat-label>
+        <mat-label class="user-name">{{bloodCenter.description}}</mat-label>
+        <mat-label>Average score:</mat-label>
+        <mat-label class="user-name">{{bloodCenter.averageScore}}</mat-label>
+        <br />
+        <div name="gradeForm">
+            <form (ngSubmit)="onSubmit()" [formGroup]="gradeForm">
+                <mat-label>Rate this blood center!</mat-label>            
+                    <div>
+                        <mat-label>Score:</mat-label>
+                        <select name="rates" id="rates" formControlName="gradeValue">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                    </div>
+                <button mat-button  name="submitButton" id="submitButton"> Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -28,4 +28,8 @@ export class BloodBankService {
   filterBloodCenter(input : any, input2:any){
     return this.http.get<BloodCenter[]>(this.url + `/api/bloodCenters/filterBloodCenter/${input}/${input2}`);
   }
+
+  getById(id: number){
+    return this.http.get<BloodCenter>(this.url + `/api/bloodCenters/find/${id}`)
+  }
 }

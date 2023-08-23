@@ -65,4 +65,8 @@ export class RegisterUserService {
   getToken() {
     return this.access_token;
   }
+
+  getIdByEmail(email: string){
+    return this.http.get<number>(this.url + `/api/registeredusers/findIdByEmail/${email}`)
+  }
 }

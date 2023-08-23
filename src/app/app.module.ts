@@ -23,6 +23,8 @@ import { StartedAppointmentComponent } from './pages/allScheduled/components/sta
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioGroup, MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
+import { BloodCenterDisplayComponent } from './pages/grades/components/blood-center-display/blood-center-display.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { MatInputModule } from '@angular/material/input';
     AllSCheduledDisplayComponent,
     ScheduledInfoComponent,
     StartedAppointmentComponent,
+    BloodCenterDisplayComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,9 @@ import { MatInputModule } from '@angular/material/input';
     MatSelectModule,
     MatFormFieldModule,
     MatRadioModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers:[
     {provide: HTTP_INTERCEPTORS,
