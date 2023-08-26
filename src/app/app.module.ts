@@ -25,6 +25,7 @@ import { MatRadioGroup, MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { BloodCenterDisplayComponent } from './pages/grades/components/blood-center-display/blood-center-display.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AllBloodsComponentComponent } from './pages/blood/components/all-bloods-component/all-bloods-component.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ScheduledInfoComponent,
     StartedAppointmentComponent,
     BloodCenterDisplayComponent,
+    AllBloodsComponentComponent,
   ],
   imports: [
     BrowserModule,
