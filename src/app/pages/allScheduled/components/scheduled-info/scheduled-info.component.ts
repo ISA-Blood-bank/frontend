@@ -3,6 +3,11 @@ import { ScheduledAppointmentServicesService } from '../../services/scheduled-ap
 import { ScheduledDisplay } from '../../interfaces/dtos/scheduled-display';
 import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
+import { AdditionalInfo } from '../../interfaces/dtos/additional-info';
+import { RejectionReason } from '../../interfaces/dtos/rejection-reason';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ScheduledAppointment } from 'src/app/pages/home-page/interfaces/ScheduledAppointment';
+import { ScheduledAppointmentDto } from '../../interfaces/dtos/scheduled-appointment-dto';
 
 @Component({
   selector: 'app-scheduled-info',
@@ -19,6 +24,7 @@ export class ScheduledInfoComponent implements OnInit {
   scheduled: ScheduledDisplay
   sub:any
   id:number
+  failedScheduled: ScheduledAppointmentDto
 
   extractedTooth: boolean
   hasAllergies: boolean
@@ -30,28 +36,13 @@ export class ScheduledInfoComponent implements OnInit {
   hasSymptoms:boolean
   questionaireId: number
 
+  rejectionInfo: RejectionReason
+
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'))
     console.log(this.id)
     this.nested()
-    // this.getById()
     
-    // setTimeout(()=> {
-    //   console.log("First")
-    // }, 5000)
-
-    // this.getQuestionnaireId()
-    // setTimeout(()=> {
-    //   console.log("Second")
-    // }, 5000)
-
-    // this.getExtracted()
-    // this.getAllergies()
-    // this.getTattooed()
-    // this.getCold()
-    // this.getMensruation()
-    // this.getMedication()
-    this.disable()
     console.log(this.questionaireId)
   }
 
@@ -99,6 +90,76 @@ export class ScheduledInfoComponent implements OnInit {
     this.scheduledAppointmentService.userHasCold(this.id).subscribe(
       data => {
         this.hasCold = data
+      }
+    )
+  }
+
+  rejectPatient(){
+    let reasonOutput: string = ""
+
+    if (this.extractedTooth) {
+      reasonOutput = reasonOutput + "Patient had extracted a tooth in past 7 days\n"
+    }
+
+    if(this.hasAllergies){
+      reasonOutput = reasonOutput + "Patient has allergies\n"
+    }
+
+    if(this.gotTattooed) {
+      reasonOutput = reasonOutput + "Patient got tattooed in past 6 months"
+    }
+
+    if(this.hasCold){
+      reasonOutput = reasonOutput + "Patient has cold"
+    }
+
+    if(this.takesMedication){
+      reasonOutput = reasonOutput + "Patient takes medication"
+    }
+
+    if(this.hasMensturation){
+      reasonOutput = reasonOutput + "Patient has menstruation or is pregnant"
+    }
+
+    this.rejectionInfo = {
+      id: -1,
+      medicalStaffId: 2,
+      scheduledAppointmentId: this.id,
+      rejectionReason: reasonOutput
+    }
+
+    console.log(this.rejectionInfo)
+
+    this.scheduledAppointmentService.rejectAppointment(this.rejectionInfo).subscribe(
+      data => {
+        alert("Rejection successful!")
+        this.router.navigateByUrl('/userView')
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+  }
+
+  patientNotCome(){
+    this.failedScheduled = {
+      id: this.scheduled.id,
+      appointmentId: this.scheduled.appointmentId,
+      canceled: true,
+      passed:true,
+      registredUserId: this.scheduled.userId
+      
+    }
+
+    console.log(this.failedScheduled)
+
+    this.scheduledAppointmentService.userNotCome(this.failedScheduled).subscribe(
+      data => {
+        alert("Patient didn't come successfull!")
+        this.router.navigateByUrl('/userView')
+      },
+      (error:HttpErrorResponse) => {
+        alert(error.message)
       }
     )
   }
@@ -188,6 +249,8 @@ export class ScheduledInfoComponent implements OnInit {
                     console.log('meds')
                     console.log(meds)
                     this.takesMedication = meds
+
+                    this.disable()
                   });
                 });
               });

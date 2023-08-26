@@ -28,8 +28,9 @@
             <mat-label class="has-symptoms">This user takes medication!</mat-label>
         </div>
         
-        <button >User has not come</button>
+        <button (click)="patientNotCome()">User has not come</button>
         <button [disabled]="hasSymptoms" (click)="startAppointment()">Start appointment</button>
+        <button [hidden]="!hasSymptoms" (click)="rejectPatient()"> Reject patient</button>
     </div>
     
 </div>

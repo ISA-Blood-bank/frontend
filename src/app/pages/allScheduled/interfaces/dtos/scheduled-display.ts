@@ -8,4 +8,5 @@ export interface ScheduledDisplay {
     passed: boolean;
     canceled: boolean;
     userId: number;
+    appointmentId: number;
 }

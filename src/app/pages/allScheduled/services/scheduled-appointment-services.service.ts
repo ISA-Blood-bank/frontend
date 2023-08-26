@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { ScheduledDisplay } from '../interfaces/dtos/scheduled-display';
 import {Observable} from 'rxjs'
 import { AdditionalInfo } from '../interfaces/dtos/additional-info';
+import { RejectionReason } from '../interfaces/dtos/rejection-reason';
+import { ScheduledAppointmentDto } from '../interfaces/dtos/scheduled-appointment-dto';
 
 
 @Injectable({
@@ -53,5 +55,13 @@ export class ScheduledAppointmentServicesService {
 
   finishAppointment(dto: AdditionalInfo): Observable<any>{
     return this.http.post<any>(this.url + `/api/scheduledAppointments/appointmentFinish`, dto)
+  }
+
+  rejectAppointment(dto: RejectionReason): Observable<any>{
+    return this.http.post<any>(this.url + '/api/scheduledAppointments/rejectPatient', dto)
+  }
+
+  userNotCome(dto: ScheduledAppointmentDto): Observable<any>{
+    return this.http.put<any>(this.url + `/api/scheduledAppointments/patientNotCome`, dto)
   }
 }
