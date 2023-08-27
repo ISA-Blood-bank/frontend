@@ -19,6 +19,7 @@ import { ScheduledInfoComponent } from './pages/allScheduled/components/schedule
 import { StartedAppointmentComponent } from './pages/allScheduled/components/started-appointment/started-appointment.component';
 import { BloodCenterDisplayComponent } from './pages/grades/components/blood-center-display/blood-center-display.component';
 import { AllBloodsComponentComponent } from './pages/blood/components/all-bloods-component/all-bloods-component.component';
+import { AllColleaguesComponent } from './pages/colleague/components/all-colleagues/all-colleagues.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
   { path: 'scheduledInfo/:id', component:ScheduledInfoComponent},
   { path: 'appointmentStart/:id/:qId/:schId', component: StartedAppointmentComponent},
   { path: 'bloodCenterInfo/:id', component: BloodCenterDisplayComponent},
-  { path: 'allBloods/:bloodCenterId', component: AllBloodsComponentComponent}
+  { path: 'allBloods/:bloodCenterId', component: AllBloodsComponentComponent},
+  { path: 'allColleagues/:bloodCenterId', component: AllColleaguesComponent}
 ];
 
 @NgModule({
