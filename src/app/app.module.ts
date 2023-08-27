@@ -30,6 +30,7 @@ import { AllColleaguesComponent } from './pages/colleague/components/all-colleag
 import { AllAppointmentsComponent } from './pages/allAppointments/components/all-appointments/all-appointments.component';
 import { AllVisitedComponent } from './pages/allVisited/components/all-visited/all-visited.component';
 import { MyCenterComponent } from './pages/myCenter/components/my-center/my-center.component';
+import { MyPrfileComponent } from './pages/myProfile/components/my-prfile/my-prfile.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { MyCenterComponent } from './pages/myCenter/components/my-center/my-cent
     AllAppointmentsComponent,
     AllVisitedComponent,
     MyCenterComponent,
+    MyPrfileComponent,
   ],
   imports: [
     BrowserModule,

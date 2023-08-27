@@ -20,4 +20,8 @@ export class MedicalStaffService {
   getAllUsersWhoVisited(bloodCenterId: number){
     return this.http.get<RegistredUserViewDto[]>(this.url + `/allVisited/${bloodCenterId}`)
   }
+
+  getMedicalStaff(id: number){
+    return this.http.get<MedicalStaffDto>(this.url + `/myProfile/${id}`)
+  }
 }
