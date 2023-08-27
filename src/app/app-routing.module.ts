@@ -22,6 +22,7 @@ import { AllBloodsComponentComponent } from './pages/blood/components/all-bloods
 import { AllColleaguesComponent } from './pages/colleague/components/all-colleagues/all-colleagues.component';
 import { AllAppointmentsComponent } from './pages/allAppointments/components/all-appointments/all-appointments.component';
 import { AllVisitedComponent } from './pages/allVisited/components/all-visited/all-visited.component';
+import { MyCenterComponent } from './pages/myCenter/components/my-center/my-center.component';
 
 
 const routes: Routes = [
@@ -48,7 +49,8 @@ const routes: Routes = [
   { path: 'allBloods/:bloodCenterId', component: AllBloodsComponentComponent},
   { path: 'allColleagues/:bloodCenterId', component: AllColleaguesComponent},
   { path: 'allAppointments/:bloodCenterId', component:AllAppointmentsComponent},
-  { path: 'allVisitedUsers/:bloodCenterId', component: AllVisitedComponent}
+  { path: 'allVisitedUsers/:bloodCenterId', component: AllVisitedComponent},
+  { path: 'myBloodCenter/:bloodCenterId', component: MyCenterComponent}
 ];
 
 @NgModule({

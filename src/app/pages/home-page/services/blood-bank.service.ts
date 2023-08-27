@@ -2,6 +2,7 @@ import { BloodCenterDto } from './../interfaces/dtos/BloodCenterDto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BloodCenter } from '../interfaces/BloodCenter';
+import { BloodCenterView } from '../interfaces/dtos/blood-center-view';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ export class BloodBankService {
 
   getById(id: number){
     return this.http.get<BloodCenter>(this.url + `/api/bloodCenters/find/${id}`)
+  }
+
+  getForMedStaff(bloodCenterId: number){
+    return this.http.get<BloodCenterView>(this.url + `/api/bloodCenters/findOne/${bloodCenterId}`)
   }
 }
