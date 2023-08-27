@@ -21,6 +21,7 @@ import { BloodCenterDisplayComponent } from './pages/grades/components/blood-cen
 import { AllBloodsComponentComponent } from './pages/blood/components/all-bloods-component/all-bloods-component.component';
 import { AllColleaguesComponent } from './pages/colleague/components/all-colleagues/all-colleagues.component';
 import { AllAppointmentsComponent } from './pages/allAppointments/components/all-appointments/all-appointments.component';
+import { AllVisitedComponent } from './pages/allVisited/components/all-visited/all-visited.component';
 
 
 const routes: Routes = [
@@ -46,7 +47,8 @@ const routes: Routes = [
   { path: 'bloodCenterInfo/:id', component: BloodCenterDisplayComponent},
   { path: 'allBloods/:bloodCenterId', component: AllBloodsComponentComponent},
   { path: 'allColleagues/:bloodCenterId', component: AllColleaguesComponent},
-  { path: 'allAppointments/:bloodCenterId', component:AllAppointmentsComponent}
+  { path: 'allAppointments/:bloodCenterId', component:AllAppointmentsComponent},
+  { path: 'allVisitedUsers/:bloodCenterId', component: AllVisitedComponent}
 ];
 
 @NgModule({
