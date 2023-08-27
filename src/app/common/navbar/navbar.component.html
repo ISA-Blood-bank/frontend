@@ -27,6 +27,7 @@
         <a mat-button *ngIf="role === 'ROLE_MEDSTAFF'" routerLink="/allScheduled">All scheduled appointments</a>
         <a mat-button *ngIf="role === 'ROLE_MEDSTAFF'" routerLink="/allBloods/1">All Bloods</a>
         <a mat-button *ngIf="role === 'ROLE_MEDSTAFF'" routerLink="/allColleagues/1">My Colleagues</a>
+        <a mat-button *ngIf="role === 'ROLE_MEDSTAFF'" routerLink="/allAppointments/1">All Appointments</a>
         <a mat-button *ngIf="role != 'ROLE_NOTAUTH'" (click)="logout()">Logout
         </a>
 </mat-toolbar>

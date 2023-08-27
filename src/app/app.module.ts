@@ -27,6 +27,7 @@ import { BloodCenterDisplayComponent } from './pages/grades/components/blood-cen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllBloodsComponentComponent } from './pages/blood/components/all-bloods-component/all-bloods-component.component';
 import { AllColleaguesComponent } from './pages/colleague/components/all-colleagues/all-colleagues.component';
+import { AllAppointmentsComponent } from './pages/allAppointments/components/all-appointments/all-appointments.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AllColleaguesComponent } from './pages/colleague/components/all-colleag
     BloodCenterDisplayComponent,
     AllBloodsComponentComponent,
     AllColleaguesComponent,
+    AllAppointmentsComponent,
   ],
   imports: [
     BrowserModule,
